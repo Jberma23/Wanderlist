@@ -1,16 +1,17 @@
 class CountriesController < ApplicationController\
+    before_action: :find_country, only: [:show]
+    
     def index 
     end 
     def show
     end 
-    def new
+    
+    private
+
+    def country_params
+        params.require(:country).permit(:name, :currency)
     end 
-    def create 
-    end 
-    def edit
-    end 
-    def update
-    end 
-    def destroy
-    end 
+    def find_country 
+        @country = Country.find_by(params[:id])
+    end
 end
