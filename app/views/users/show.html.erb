@@ -7,7 +7,7 @@
 <ul>
   <% Trip.all.sort_by {|trip| trip.start_date}.each do |trip| %>
     <% if trip.end_date < Date.today  %>
-      <%= trip.start_date %> - <%= trip.end_date %><br>
+      <li><%= trip.start_date %> - <%= trip.end_date %></li><br>
       <% end %>
   <% end %>
 </ul>
@@ -16,12 +16,27 @@
   <ul>
     <% Trip.all.sort_by{|trip| trip.start_date}.each do |trip| %>
     <% if trip.end_date > Date.today %>
-      <%= trip.flights %><%= trip.start_date %> - <%= trip.end_date %><br>
+      <li><%= trip.flights %><%= trip.start_date %> - <%= trip.end_date%></li><br>
       <% end %>
     <% end %>
   </ul>
 
+  <h2>trip countries</h2>
+  <ul>
+    <%Trip.all.each do |trip|%>
+      <%trip.flights.each do |flight|%>
+        <%flight.country_id%>
+        <li>Country:&nbsp&nbsp<%=Country.find_by(id:flight.country_id).name%>&nbsp&nbsp   ---&nbsp &nbsp Currency:&nbsp&nbsp
+        <%=Country.find_by(id:flight.country_id).currency %></li>
+      <%end%>
+    <%end%>
+  </ul>
 
+
+
+trip.flights.each do |flight|
+flight.country_id 
+Country.find_by(id: flight.country_id)
 
 
   <a href="<%=@user.id%>/edit"><button type="button">Edit This User</button></a>

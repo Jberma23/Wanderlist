@@ -1,12 +1,11 @@
 class UsersController < ApplicationController
-    # before_action :find_user, only: [:show, :edit, :update]
+    before_action :find_user, only: [:show, :edit, :update]
 
     def index
         @users = User.all
     end
 
     def show
-        @user = User.find(params[:id])
     end
 
     def new
@@ -23,11 +22,10 @@ class UsersController < ApplicationController
         end
     end 
     def edit
-        @user = User.find(params[:id])
+        
     end 
 
     def update
-        @user = User.find(params[:id])
         @user.update(user_params)
         if @user
             @user.save
@@ -46,6 +44,6 @@ class UsersController < ApplicationController
         params.require(:user).permit(:name, :passport_number, :username, :password)
     end
     def find_user
-        @user = User.find_by(params[:id])
+        @user = User.find(params[:id])
     end
 end
