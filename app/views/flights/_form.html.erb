@@ -1,0 +1,13 @@
+<%= form_for :flight do |f| %>
+ <%= f.label :flight_number %>
+ <%= f.text_field :flight_number %>
+ <%= f.label :country_id %>
+ <%= f.text_field :country_id %>
+ <%= f.label :trip_id %>
+ <%= f.text_field :trip_id %>
+ <%= f.label :origin_airport %>
+ <%= f.text_field :origin_airport %>
+ <%= f.label :destination_airport %>
+ <%= f.text_field :destination_airport %>
+ <%= f.submit %>
+<%= end %>

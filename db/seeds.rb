@@ -1,7 +1,7 @@
-User.destroy_all
-Trip.destroy_all
-Country.destroy_all 
-Flight.destroy_all
+# User.destroy_all
+# Trip.destroy_all
+# Country.destroy_all 
+# Flight.destroy_all
 
 require 'faker'
 

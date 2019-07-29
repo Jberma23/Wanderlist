@@ -1,17 +1,31 @@
 class TripsController < ApplicationController
-    before_action :find_trip, only: [:show]
+    before_action :find_trip, only: [:show, :create, :update, :edit]
     
     def index 
+        @trips = Trip.all
     end 
+
     def show
     end 
+
     def new
+        @trip = Trip.new
     end 
+
     def create 
+
     end 
     def edit
+        
     end 
     def update
+        @trip.update(trip_params)
+        if @trip 
+            @trip.save
+            redirect_to trip_path(@trip)
+        else 
+            render :edit
+        end
     end 
     def destroy
     end 
