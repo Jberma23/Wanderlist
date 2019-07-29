@@ -5,8 +5,8 @@
 
 <h2> Your past trips </h2>
 <ul>
-  <% Trip.all.each do |trip| %>
-    <% if trip.start_date < Date.today  %>
+  <% Trip.all.sort_by {|trip| trip.start_date}.each do |trip| %>
+    <% if trip.end_date < Date.today  %>
       <%= trip.start_date %> - <%= trip.end_date %><br>
       <% end %>
   <% end %>
@@ -14,7 +14,7 @@
 
 <h2> Your upcoming trips </h2>
   <ul>
-    <% Trip.all.each do |trip| %>
+    <% Trip.all.sort_by{|trip| trip.start_date}.each do |trip| %>
     <% if trip.end_date > Date.today %>
       <%= trip.flights %><%= trip.start_date %> - <%= trip.end_date %><br>
       <% end %>
