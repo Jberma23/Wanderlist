@@ -3,7 +3,7 @@
 <h2> Your past trips </h2>
 <ul>
   <% Trip.all.each do |trip| %>
-    <% if trip.end_date < DateTime.now %>
+    <% if trip.start_date < DateTime.now %>
       <%= trip.start_date %> - <%= trip.end_date %><br>
       <% end %>
   <% end %>
@@ -13,7 +13,9 @@
   <ul>
     <% Trip.all.each do |trip| %>
     <% if trip.end_date > DateTime.now %>
-      <%= trip.start_date %>, <%= trip.end_date %><br>
+      <%= trip.flights %><%= trip.start_date %> - <%= trip.end_date %><br>
       <% end %>
     <% end %>
   </ul>
+
+<h3><%= link_to "Add a new trip", new_trip_path(@trip) %>
