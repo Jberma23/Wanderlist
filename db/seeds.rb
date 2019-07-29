@@ -1,7 +1,7 @@
-# User.destroy_all
-# Trip.destroy_all
-# Country.destroy_all 
-# Flight.destroy_all
+User.destroy_all
+Trip.destroy_all
+Country.destroy_all 
+Flight.destroy_all
 
 require 'faker'
 
@@ -10,15 +10,15 @@ require 'faker'
 user_counter = 0
 unless user_counter > 150 
     20.times do 
-        User.create(name:"#{Faker::Name.name}", passport_number: Faker::Number.number(10), username: "#{Faker::Internet.username}",password: "#{Faker::Internet.password}")
+        User.create(name:"#{Faker::Name.name}", passport_number: Faker::Number.number(9), username: "#{Faker::Internet.username}",password: "#{Faker::Internet.password}")
 
-        User.create(name:"#{Faker::Name.name}", passport_number: Faker::Number.number(10), username: "#{Faker::Internet.username}",password: "#{Faker::Internet.password}")
+        User.create(name:"#{Faker::Name.name}", passport_number: Faker::Number.number(9), username: "#{Faker::Internet.username}",password: "#{Faker::Internet.password}")
 
-        User.create(name:"#{Faker::Name.name}", passport_number: Faker::Number.number(10), username: "#{Faker::Internet.username}",password: "#{Faker::Internet.password}")
+        User.create(name:"#{Faker::Name.name}", passport_number: Faker::Number.number(9), username: "#{Faker::Internet.username}",password: "#{Faker::Internet.password}")
 
-        User.create(name: "#{Faker::Name.name}", passport_number: Faker::Number.number(10), username: "#{Faker::Internet.username}",password: "#{Faker::Internet.password}")
+        User.create(name: "#{Faker::Name.name}", passport_number: Faker::Number.number(9), username: "#{Faker::Internet.username}",password: "#{Faker::Internet.password}")
 
-        User.create(name:"#{Faker::Name.name}", passport_number: Faker::Number.number(10), username: "#{Faker::Internet.username}",password: "#{Faker::Internet.password}")
+        User.create(name:"#{Faker::Name.name}", passport_number: Faker::Number.number(9), username: "#{Faker::Internet.username}",password: "#{Faker::Internet.password}")
         user_counter += 1
     end
 end
