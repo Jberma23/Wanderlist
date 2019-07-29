@@ -1,3 +1,4 @@
+
 <h1><%=@user.name.capitalize%>'s Detail Page</h1>
 
 
@@ -5,7 +6,7 @@
 <h2> Your past trips </h2>
 <ul>
   <% Trip.all.each do |trip| %>
-    <% if trip.end_date.before?(DateTime.now.to_d)  %>
+    <% if trip.end_date < Date.today  %>
       <%= trip.start_date %> - <%= trip.end_date %><br>
       <% end %>
   <% end %>
