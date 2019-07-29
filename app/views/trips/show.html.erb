@@ -1,0 +1,41 @@
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<a href="<%=@trip.id%>/edit"><button type="button">Edit This Trip</button></a>
+<%= form_tag trips_path(@trip.id), method: "delete" do %>
+  <%= submit_tag "Delete This Trip" %>
+<%end%>

@@ -1,9 +1,18 @@
 <h1><%=@user.name.capitalize%>'s Detail Page</h1>
 
+<<<<<<< HEAD
 <h2> Your past trips </h2>
 <ul>
   <% Trip.all.each do |trip| %>
     <% if trip.start_date < DateTime.now %>
+=======
+
+
+<h2> Your past trips </h2>
+<ul>
+  <% Trip.all.each do |trip| %>
+    <% if trip.end_date.before?(DateTime.now.to_d)  %>
+>>>>>>> 9efed221d4e849a7803c97f27a8386476db3f078
       <%= trip.start_date %> - <%= trip.end_date %><br>
       <% end %>
   <% end %>
@@ -13,9 +22,23 @@
   <ul>
     <% Trip.all.each do |trip| %>
     <% if trip.end_date > DateTime.now %>
+<<<<<<< HEAD
       <%= trip.flights %><%= trip.start_date %> - <%= trip.end_date %><br>
+=======
+      <%= trip.start_date %>, <%= trip.end_date %><br>
+>>>>>>> 9efed221d4e849a7803c97f27a8386476db3f078
       <% end %>
     <% end %>
   </ul>
 
+<<<<<<< HEAD
 <h3><%= link_to "Add a new trip", new_trip_path(@trip) %>
+=======
+
+
+
+  <a href="<%=@user.id%>/edit"><button type="button">Edit This User</button></a>
+<%= form_tag users_path(@user.id), method: "delete" do %>
+  <%= submit_tag "Delete This User" %>
+<%end%>
+>>>>>>> 9efed221d4e849a7803c97f27a8386476db3f078
