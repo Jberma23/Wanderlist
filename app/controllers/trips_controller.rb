@@ -32,7 +32,7 @@ class TripsController < ApplicationController
 
     private 
     def trip_params
-        params.require(:trip).permit(:start_date, :end_date, :user_id)
+        params.require(:trip).permit(:start_date, :end_date, :user_id, flight_ids: [], flight_attributes: [:flight_number, :country_id, :origin_airport, :destination_airport], user_id: [], user_attributes: [:name, :passport_number, :username, :password])
     end 
     def find_trip 
         @trip = Trip.find_by(params[:id])
