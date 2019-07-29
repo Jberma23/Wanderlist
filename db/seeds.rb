@@ -30,9 +30,10 @@ unless trip_counter > 150
     10.times do 
         Trip.create(start_date: Faker::Date.between(100.days.ago, Date.today), end_date: Faker::Date.between(Date.today, 1.year.from_now), user_id: User.all.sample.id)
 
-        Trip.create(start_date: Faker::Date.between(100.days.ago, Date.today), end_date: Faker::Date.between(Date.today, 1.year.from_now), user_id: User.all.sample.id )
+        Trip.create(start_date: Faker::Date.between(1.year.ago, 8.months.ago), end_date: Faker::Date.between( 8.months.ago, 9.months.ago), user_id: User.all.sample.id)
 
-        Trip.create(start_date: Faker::Date.between(100.days.ago, Date.today), end_date: Faker::Date.between(Date.today, 1.year.from_now), user_id: User.all.sample.id)
+
+        Trip.create(start_date: Faker::Date.between(1.year.ago, 6.months.ago), end_date: Faker::Date.between( 6.months.ago, 4.months.ago), user_id: User.all.sample.id)
 
         trip_counter += 1 
     end
