@@ -2,46 +2,28 @@
 
 
 
+<h2> Your past trips </h2>
+<ul>
+  <% Trip.all.each do |trip| %>
+    <% if trip.end_date.before?(DateTime.now.to_d)  %>
+      <%= trip.start_date %> - <%= trip.end_date %><br>
+      <% end %>
+  <% end %>
+</ul>
+
+<h2> Your upcoming trips </h2>
+  <ul>
+    <% Trip.all.each do |trip| %>
+    <% if trip.end_date > DateTime.now %>
+      <%= trip.start_date %>, <%= trip.end_date %><br>
+      <% end %>
+    <% end %>
+  </ul>
 
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-<a href="<%=@user.id%>/edit"><button type="button">Edit This User</button></a>
+  <a href="<%=@user.id%>/edit"><button type="button">Edit This User</button></a>
 <%= form_tag users_path(@user.id), method: "delete" do %>
   <%= submit_tag "Delete This User" %>
 <%end%>
