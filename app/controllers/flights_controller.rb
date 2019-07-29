@@ -1,6 +1,6 @@
 class FlightsController < ApplicationController
-    befor_action: :find_flight, only: [:show]
-    
+    before_action :find_flight, only: [:show]
+
     def show
     end
 
@@ -8,8 +8,8 @@ class FlightsController < ApplicationController
 
     def flight_params
         params.require(:flight).permit(:flight_number, :country_id, :trip_id, :origin_airport, :destination_airport)
-    end 
-    def find_flight 
+    end
+    def find_flight
         @flight = Flight.find_by(params[:id])
     end
 
