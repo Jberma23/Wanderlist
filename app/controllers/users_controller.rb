@@ -22,7 +22,7 @@ class UsersController < ApplicationController
 
     private 
     def user_params
-        params.require(:user).permit(:passport_number, :username, :password)
+        params.require(:user).permit(:name, :passport_number, :username, :password)
     end
     def find_user
         @user = User.find_by(params[:id])

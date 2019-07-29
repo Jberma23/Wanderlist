@@ -3,17 +3,38 @@ Trip.destroy_all
 Country.destroy_all 
 Flight.destroy_all
 
+require 'faker'
 
 
 
-@claudia = User.create(name:"claudia", passport_number: 56383658, username:  "claudia",password: "password" )
-@jesse = User.create(name:"Jesse", passport_number:  56383658, username: "jesse",password: "notpassword" )
 
-@trip1 = Trip.create(start_date: "2019/02/24", end_date:"2019/04/23", user_id: @claudia )
-@trip2 = Trip.create(start_date: "2019/11/25", end_date:"2019/12/10", user_id: @jesse.id )
+20.times do 
+User.create(name:"#{Faker::Name.name}", passport_number: Faker::Number.number(10), username: "#{Faker::Internet.username}",password: "#{Faker::Internet.password}" )
+User.create(name:"#{Faker::Name.name}", passport_number: Faker::Number.number(10), username: "#{Faker::Internet.username}",password: "#{Faker::Internet.password}" )
+User.create(name:"#{Faker::Name.name}", passport_number: Faker::Number.number(10), username: "#{Faker::Internet.username}",password: "#{Faker::Internet.password}" )
+User.create(name:"#{Faker::Name.name}", passport_number: Faker::Number.number(10), username: "#{Faker::Internet.username}",password: "#{Faker::Internet.password}" )
+User.create(name:"#{Faker::Name.name}", passport_number: Faker::Number.number(10), username: "#{Faker::Internet.username}",password: "#{Faker::Internet.password}" )
+end
 
-@america = Country.create(name: "America", currency: "USD")
-@mexico = Country.create(name:"Mexico", currency: "MX Peso")
+10.times do 
+Trip.create(start_date: "#{Faker::Date.between(100.days.ago, Date.today)}", end_date: "#{Faker::Date.between(Date.today, 1.year.from_now)}", user_id: User.all.sample.id)
+Trip.create(start_date: "#{Faker::Date.between(100.days.ago, Date.today)}", end_date: "#{Faker::Date.between(Date.today, 1.year.from_now)}", user_id: User.all.sample.id )
+Trip.create(start_date: "#{Faker::Date.between(100.days.ago, Date.today)}", end_date: "#{Faker::Date.between(Date.today, 1.year.from_now)}", user_id: User.all.sample.id)
+end
 
-@flight1 = Flight.create(flight_number: 140, country_id: @america, trip_id: @trip1, origin_airport:"Ben Gurion Airport", destination_airport: "Regan National Airport, NYC")
-@flight2 = Flight.create(flight_number: 747, country_id: @mexico, trip_id: @trip2, origin_airport:"Mexico City International Airport", destination_airport: "Regan National Airport, NYC")
+
+
+
+
+25.times do
+Country.create(name: "#{Faker::Address.country}", currency: "#{Faker::Currency.code}")
+Country.create(name: "#{Faker::Address.country}", currency: "#{Faker::Currency.code}")
+Country.create(name: "#{Faker::Address.country}", currency: "#{Faker::Currency.code}")
+Country.create(name: "#{Faker::Address.country}", currency: "#{Faker::Currency.code}")
+end
+
+20.times do
+Flight.create(flight_number: Faker::Number.number(3), country_id: Country.all.sample.id, trip_id: Trip.all.sample.id, origin_airport:"#{
+    Faker::Name.initials}", destination_airport: "#{Faker::Name.initials}")
+Flight.create(flight_number: Faker::Number.number(4), country_id: Country.all.sample.id, trip_id: Trip.all.sample.id, origin_airport: "#{Faker::Name.initials}", destination_airport: "#{Faker::Name.initials}")
+end
