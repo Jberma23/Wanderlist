@@ -1,12 +1,10 @@
 
 <h1><%=@user.name.capitalize%>'s Detail Page</h1>
 
-
-
 <h2> Your past trips </h2>
 <ul>
   <% Trip.all.each do |trip| %>
-    <% if trip.start_date < Date.today  %>
+    <% if trip.end_date < Date.today  %>
       <%= trip.start_date %> - <%= trip.end_date %><br>
       <% end %>
   <% end %>
@@ -21,10 +19,8 @@
     <% end %>
   </ul>
 
+<a href="<%=@user.id%>/edit"><button type="button">Edit This User</button></a>
 
-
-
-  <a href="<%=@user.id%>/edit"><button type="button">Edit This User</button></a>
 <%= form_tag users_path(@user.id), method: "delete" do %>
   <%= submit_tag "Delete This User" %>
 <%end%>
