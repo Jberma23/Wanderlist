@@ -24,13 +24,13 @@ end
 
 
 
-
-
-25.times do
+country_counter = 0
+unless country_counter > 150 25.times do 
 Country.create(name: "#{Faker::Address.country}", currency: "#{Faker::Currency.code}")
 Country.create(name: "#{Faker::Address.country}", currency: "#{Faker::Currency.code}")
 Country.create(name: "#{Faker::Address.country}", currency: "#{Faker::Currency.code}")
 Country.create(name: "#{Faker::Address.country}", currency: "#{Faker::Currency.code}")
+country_counter += 1 
 end
 
 20.times do
