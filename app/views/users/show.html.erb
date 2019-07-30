@@ -13,16 +13,18 @@
 </div>
 
 
-<h2 class="text-center"> Your upcoming trips </h2>
+<h2 class="text-center"> Your Upcoming Trips </h2>
   <ul>
     <% Trip.all.sort_by{|trip| trip.start_date}.each do |trip| %>
+    <%trip.flights.each do |flight|%>
     <% if trip.end_date > Date.today %>
-      <li class="list-group-item text-center" ><%= trip.flights %><%= trip.start_date %> - <%= trip.end_date%></li>
+      <li class="list-group-item text-center" >Departing Flight Number:<%= flight.flight_number%> from <%=flight.origin_airport%> to <%=flight.destination_airport%> on <%= trip.start_date %>  and returning <%= trip.end_date%></li>
       <% end %>
+      <%end%>
     <% end %>
   </ul>
 
-  <h2 class="text-center">trip countries</h2>
+  <h2 class="text-center">Country Details</h2>
   <ul>
     <%Trip.all.each do |trip|%>
       <%trip.flights.each do |flight|%>
