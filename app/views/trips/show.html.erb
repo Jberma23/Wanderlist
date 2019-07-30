@@ -1,18 +1,16 @@
-<h1><%= @trip.name %></h1>
-
+<h1><%= @trip.name.titleize%></h1>
+<%# <%byebug%> %>
 <h2 class="text-center"> Upcoming Trips </h2>
 <ul>
-  <% Trip.all.sort_by{|trip| trip.start_date}.each do |trip| %>
-  <%trip.flights.each do |flight|%>
-  <% if trip.end_date > Date.today %>
-
+  <% @trip.flights.each do |flight| %>
+  <% if @trip.end_date > Date.today %>
+  <%end%>
   <li class= "list-group-item text-center" > Trip Name:
-    <%= link_to trip.name, trip %> Departing Flight Number:
-    <%= link_to flight.flight_number, flight %> from <%= flight.origin_airport %> to
-    <%= flight.destination_airport %> on <%= trip.start_date %> ,
+    <%= link_to @trip.name, @trip %> Departing Flight Number:
+    <%= link_to @trip.flights, flight %> from <%= @trip.flights.origin_airport %> to
+    <%= @trip.flights.destination_airport %> on <%= trip.start_date %> ,
     <% end %>
-    <%end%>
-    <% end %>
+    
   </ul>
 
 <h2 class="text-center"> Past trips </h2>

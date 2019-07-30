@@ -45,6 +45,6 @@ class TripsController < ApplicationController
   end
 
   def find_trip
-    @trip = Trip.find_by(params[:id])
+    @trip = Trip.find(params[:id])
   end
 end
