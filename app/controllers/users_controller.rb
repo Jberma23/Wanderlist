@@ -27,7 +27,6 @@ class UsersController < ApplicationController
   end
 
   def update
-    byebug
     @user.update(user_params)
     if @user
     @user.save

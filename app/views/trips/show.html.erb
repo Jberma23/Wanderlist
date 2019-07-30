@@ -1,6 +1,5 @@
 <h1><%= @trip.name %></h1>
 
-<h2 class="text-center"> Upcoming Trips </h2>
 <ul>
   <% Trip.all.sort_by{|trip| trip.start_date}.each do |trip| %>
   <%trip.flights.each do |flight|%>
@@ -15,7 +14,6 @@
     <% end %>
   </ul>
 
-<h2 class="text-center"> Past trips </h2>
 <div data-spy="scroll" data-target="#navbar-example3" data-offset="0">
 <ul>
   <% Trip.all.sort_by {|trip| trip.start_date}.each do |trip| %>
@@ -29,7 +27,6 @@
 </ul>
 </div>
 
-  <h2 class="text-center">Country Details</h2>
   <ul>
     <%Trip.all.each do |trip|%>
       <%trip.flights.each do |flight|%>
