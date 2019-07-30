@@ -4,6 +4,7 @@ Rails.application.routes.draw do
   resources :countries
   resources :flights
   resources :users
+  root :to => "welcome#index"
   
   
 

@@ -1,4 +1,6 @@
 <h1>Create a new user</h1>
 
 
-<%= render "user_form"%>
+<%= form_tag users_path do %>
+<%= render 'user_form'%>
+<% end %>
