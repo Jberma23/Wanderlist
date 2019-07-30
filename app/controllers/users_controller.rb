@@ -26,7 +26,12 @@ class UsersController < ApplicationController
 
   def update
     @user.update(user_params)
+    if @user 
     @user.save
+    redirect_to user_path(@user)
+    else 
+      render :edit
+    end
   end
 
   def destroy
@@ -37,7 +42,7 @@ class UsersController < ApplicationController
 
   private
   def user_params
-    params.require(:user).permit(:name, :passport_number, :username, :password)
+    params.require(:user).permit(:id,:name, :passport_number, :username, :password)
   end
 
   def find_user

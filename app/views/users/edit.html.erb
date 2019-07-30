@@ -1,4 +1,6 @@
 <h1>Edit a user</h1>
 
 
-<%= render "user_form"%>
+<%= form_tag user_path(@user), method: "put" do %>
+<%= render 'user_form'%>
+<% end %>
