@@ -1,38 +1,44 @@
+<h1><%= @trip.name %></h1>
 
+<h2 class="text-center"> Upcoming Trips </h2>
+<ul>
+  <% Trip.all.sort_by{|trip| trip.start_date}.each do |trip| %>
+  <%trip.flights.each do |flight|%>
+  <% if trip.end_date > Date.today %>
 
+  <li class= "list-group-item text-center" > Trip Name:
+    <%= link_to trip.name, trip %> Departing Flight Number:
+    <%= link_to flight.flight_number, flight %> from <%= flight.origin_airport %> to
+    <%= flight.destination_airport %> on <%= trip.start_date %> ,
+    <% end %>
+    <%end%>
+    <% end %>
+  </ul>
 
+<h2 class="text-center"> Past trips </h2>
+<div data-spy="scroll" data-target="#navbar-example3" data-offset="0">
+<ul>
+  <% Trip.all.sort_by {|trip| trip.start_date}.each do |trip| %>
+    <% if trip.end_date < Date.today  %>
+      <li class="list-group-item text-center" > Trip Name:
+        <%= link_to trip.name, trip %> Start Date: <%= trip.start_date %>
+        End Date: <%= trip.end_date %> Activities: <%= link_to @activity,
+        activity_path %></li>
+      <% end %>
+  <% end %>
+</ul>
+</div>
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+  <h2 class="text-center">Country Details</h2>
+  <ul>
+    <%Trip.all.each do |trip|%>
+      <%trip.flights.each do |flight|%>
+        <%flight.country_id%>
+        <li class="list-group-item text-center">Country:&nbsp&nbsp<%=Country.find_by(id:flight.country_id).name%>&nbsp&nbsp   ---&nbsp &nbsp Currency:&nbsp&nbsp
+        <%=Country.find_by(id:flight.country_id).currency %></li>
+      <%end%>
+    <%end%>
+  </ul>
 
 
 <a href="<%=@trip.id%>/edit"><button type="button">Edit This Trip</button></a>
