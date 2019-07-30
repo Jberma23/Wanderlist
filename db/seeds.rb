@@ -67,5 +67,17 @@ Flight.destroy_all
 #     end
 # end
 
-User.create(name:"Claudia Solbes", passport_number: 8403948204, username: "claudiasolbes",password: "password")
-User.create(name:"Jesse", passport_number: 8403948204, username: "claudiasolbes",password: "password")
+claudia = User.create(name:"Claudia Solbes", passport_number: 8403948204, username: "claudiasolbes",password: "password")
+jesse = User.create(name:"Jesse", passport_number: 8403948204, username: "claudiasolbes",password: "password")
+
+bahamas = Trip.create(name:"Bahamas", :start_date => "Fri, 26 Oct 2018", :end_date => "Sat, 27 Oct 2018", user_id:300)
+portugal = Trip.create(name:"Portugal", :start_date => "Thurs, Aug 1, 2019", :end_date => "Sat, Aug 3, 2019", user_id:306)
+
+usa = Country.create(name:"United States of America", currency:"US Dollar")
+mex = Country.create(name:"Mexico", currency:"MX Peso")
+
+AA309 = Flight.create(flight_number:309, country_id:100, trip_id:70, origin_airport:"TAM", destination_airport:"DCA")
+S289 = Flight.create(flight_number:289, country_id:104, trip_id:77, origin_airport:"BWI", destination_airport:"FLA")
+
+fishing = Activity.create(user_id:300, trip_id:70, name:"fishing", description:"get on a boat and catch a fish")
+surfing = Activity.create(user_id:306, trip_id:77, name:"surfing", description:"get on a board and catch a wave")
