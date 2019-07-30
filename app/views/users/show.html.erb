@@ -1,10 +1,5 @@
-
-<<<<<<< HEAD
-<h1 class="text-center"><u><%=@user.name.capitalize%>'s Trips</u></h1>
-=======
-<h1 class="text-center"><u><%=@user.name.titleize%>'s Detail Page</u></h1>
->>>>>>> 32b641d08cdbc44445ca73680a34d260ded0fab5
-
+<h1 class="text-center"><u><%=@user.name.titleize%>'s Trips</u></h1>
+<br>
 <h2 class="text-center"> Upcoming Trips </h2>
 <ul>
   <% Trip.all.sort_by{|trip| trip.start_date}.each do |trip| %>
@@ -15,7 +10,7 @@
   <% end %>
 <% end %>
 </ul>
-
+<br>
 <h2 class="text-center"> Past trips </h2>
 <div data-spy="scroll" data-target="#navbar-example3" data-offset="0">
 <ul>
@@ -26,9 +21,7 @@
   <% end %>
 </ul>
 </div>
-
-
-
+<br>
   <h2 class="text-center">Country Details</h2>
   <ul>
     <%Trip.all.each do |trip|%>
@@ -40,9 +33,9 @@
     <%end%>
   </ul>
 
-  <%= link_to "Delete This User", user_path(@user), method: "delete" %><br>
 
   <a href="<%= @user.id %>/edit" ><button type="button">Edit This User</button></a><br>
+  <%= link_to "Delete This User", user_path(@user), method: "delete" %><br>
 
   <%= form_tag users_path(@user.id), method: "delete" do %>
     <%= submit_tag "Delete This User" %>

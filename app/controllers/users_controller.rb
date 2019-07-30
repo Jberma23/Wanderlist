@@ -1,5 +1,7 @@
 class UsersController < ApplicationController
-    before_action :find_user, only: [:show, :edit, :update]
+
+  before_action :find_user, only: [:show, :edit, :update]
+
   def index
     @users = User.all
   end
@@ -25,24 +27,27 @@ class UsersController < ApplicationController
   end
 
   def update
+    byebug
     @user.update(user_params)
-    if @user 
+    if @user
     @user.save
     redirect_to user_path(@user)
-    else 
+    else
       render :edit
     end
   end
 
   def destroy
     @user = User.destroy(params[:id])
-    redirect_to users_path(@user)
+    redirect_to users_path
   end
 
 
   private
+
   def user_params
-    params.require(:user).permit(:id,:name, :passport_number, :username, :password)
+    params.require(:user).permit(:id, :name, :passport_number, :username,
+      :password)
   end
 
   def find_user
