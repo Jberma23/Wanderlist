@@ -1,35 +1,39 @@
-<%= form_for :trip do |f| %>
-  <%= f.label :start_date %><br>
-  <%= f.date_field  :start_date %>
-  <br>
-  <br>
-  <%= f.label :end_date %><br>
-  <%= f.date_field :end_date %>
-  <br>
-  <br>
-  <%= fields_for @users do |c|%>
-  <%= c.label :user_id %><br>
-  <%= c.collection_select :user_id, User.all, :id, :name %>
-  <br>
-  <br>
+<div class="container">
+  <%= form_for :trip do |f| %>
+<div class="form-group">
+  <%= f.label :start_date, class: "form-text" %>
+  <%= f.date_field  :start_date, class: "form-control" %>
+</div>
+  <div class="form-group">
+    <%= f.label :end_date, class: "form-text" %>
+    <%= f.date_field :end_date, class: "form-control" %>
+  </div>
+  <div class="form-group">
+    <%= fields_for @users do |c|%>
+      <%= c.label :user_id, class:"form-text" %>
+      <%= c.collection_select :user_id, User.all, :id, :name, class: "form-control"%>
+  </div>
+    <%end%>
+  <div class="form-group">
+      <%= fields_for @flights do |p|%>
+      <%=p.label :flight_number, class: "form-text"%>
+      <%=p.number_field :flight_number, class: "form-control"%>
+  </div>
+  <div class="form-group">
+    <%=p.label :final_destination, class: "form-text"%>
+    <%=p.collection_select :country_ids, Country.all, :id, :name, class: "form-control"%>
+  </div>
+  <div class="form-group">
+    <%=p.label :origin_airport, class: "form-text"%>
+    <%=p.collection_select :origin_airport, Flight.all, :id, :origin_airport, class: "form-control"%>
+  </div>
+  <div class="form-group">
+    <%=p.label :destination_airport, class: "form-text"%>
+    <%=p.collection_select :destination_airport, Flight.all, :id, :destination_airport, class: "form-control"%>
+  </div>
   <%end%>
-  <%= fields_for @flights do |p|%>
-    <%=p.label :flight_number%><br>
-    <%=p.number_field :flight_number%>
-    <br>
-    <br>
-    <%=p.label :final_destination%><br>
-    <%=p.collection_select :country_ids, Country.all, :id, :name%>
-    <br>
-    <br>
-    <%=p.label :origin_airport%><br>
-    <%=p.collection_select :origin_airport, Flight.all, :id, :origin_airport%><br>
-    <br>
-    <%=p.label :destination_airport%><br>
-    <%=p.collection_select :destination_airport, Flight.all, :id, :destination_airport%>
-    <br>
-    <br>
-  <%end%>
-  <br>
-  <%= f.submit %>
+  <div class="form-group">
+    <%= f.submit "Submit", class: "btn btn-primary" %>
+  </div>
 <%end%>
+</div>

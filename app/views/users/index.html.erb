@@ -1,13 +1,13 @@
-<h1>User Index Page</h1>
+<h1 class="text-center"><u>User Index Page</u></h1>
 
 
 <h3>All users:</h3>
 <ul>
   <% @users.each do |user| %>
-    <li><%= link_to user.name, user %></li>
+    <li class="text-primary"><%= link_to user.name, user %></li>
   <%end%>
 </ul>
 
 
-<a href="users/new"><button type="button">Add New User</button></a>
-<a href="trips/"><button type="button">See All Trips</button></a>
+<a href="users/new" class="text-primary"><button type="button">Add New User</button></a>
+<a href="trips/" class="text-primary"><button type="button">See All Trips</button></a>

@@ -1,38 +1,42 @@
 
-<h1><%=@user.name.capitalize%>'s Detail Page</h1>
+<h1 class="text-center"><u><%=@user.name.capitalize%>'s Detail Page</u></h1>
 
-<h2> Your past trips </h2>
-<ul>
+<h2 class="text-center"> Your past trips </h2>
+<div data-spy="scroll" data-target="#navbar-example3" data-offset="0">
+<ul >
   <% Trip.all.sort_by {|trip| trip.start_date}.each do |trip| %>
     <% if trip.end_date < Date.today  %>
-      <li><%= trip.start_date %> - <%= trip.end_date %></li><br>
+      <li class="list-group-item text-center" > Start Date: <%= trip.start_date %> End Date: <%= trip.end_date %></li>
       <% end %>
   <% end %>
 </ul>
+</div>
 
-<h2> Your upcoming trips </h2>
+
+<h2 class="text-center"> Your upcoming trips </h2>
   <ul>
     <% Trip.all.sort_by{|trip| trip.start_date}.each do |trip| %>
     <% if trip.end_date > Date.today %>
-      <li><%= trip.flights %><%= trip.start_date %> - <%= trip.end_date%></li><br>
+      <li class="list-group-item text-center" ><%= trip.flights %><%= trip.start_date %> - <%= trip.end_date%></li>
       <% end %>
     <% end %>
   </ul>
 
-  <h2>trip countries</h2>
+  <h2 class="text-center">trip countries</h2>
   <ul>
     <%Trip.all.each do |trip|%>
       <%trip.flights.each do |flight|%>
         <%flight.country_id%>
-        <li>Country:&nbsp&nbsp<%=Country.find_by(id:flight.country_id).name%>&nbsp&nbsp   ---&nbsp &nbsp Currency:&nbsp&nbsp
+        <li class="list-group-item text-center">Country:&nbsp&nbsp<%=Country.find_by(id:flight.country_id).name%>&nbsp&nbsp   ---&nbsp &nbsp Currency:&nbsp&nbsp
         <%=Country.find_by(id:flight.country_id).currency %></li>
       <%end%>
     <%end%>
   </ul>
 
-  <a href="<%=@user.id%>/edit"><button type="button">Edit This User</button></a>
-<a href="<%=@user.id%>/edit"><button type="button">Edit This User</button></a>
+<a href="<%=@user.id%>/edit" ><button type="button">Edit This User</button></a>
+<a href="<%=@user.id%>/edit" ><button type="button">Edit This User</button></a>
 
 <%= form_tag users_path(@user.id), method: "delete" do %>
   <%= submit_tag "Delete This User" %>
 <%end%>
+
