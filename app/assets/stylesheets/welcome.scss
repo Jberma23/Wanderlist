@@ -1,6 +1,29 @@
 // Place all the styles related to the Welcome controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
-.background_image{
-    background-image: "flight map.jpeg"
+.style_image {
+    align-self: center;
+
+    border-right: 1px solid #000;
+  }
+  .masthead {
+    height: 100vh;
+    min-height: 500px;
+    position: float;
+    background-image: url('flight_map.jpeg');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+  }
+  .font-weight-light{
+      color: white;
+  }
+  .lead{
+    color: white;
+}
+.login{
+    position: absolute;
+    right: -2%;
+    top: -250%;
+    width: 100px;
 }
