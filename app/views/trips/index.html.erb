@@ -4,8 +4,8 @@
     <% @trips.sort_by{|trip| trip.start_date}.each do |trip| %>
     <%trip.countries.each do |country|%>
       <%if trip.end_date < Date.today%>
-      <li><a href="/users/<%=trip.user.id%>" class="text-primary"><%=trip.user.name%></a> traveled in <a href="/countries/<%=country.id%>"><%=country.name%></a>  from <a href="/<%=trip.id%>" class="text-secondary"><%= trip.start_date %> to  <%= trip.end_date%></a></li>
-      <%else%> 
+      <li><a href="/trips/<%=trip.id%>" class="text-primary"><%=trip.name%></a>:<a href="/users/<%=trip.user.id%>" class="text-primary"><%=trip.user.name%></a> traveled in <a href="/countries/<%=country.id%>"><%=country.name%></a>  from <a href="/<%=trip.id%>" class="text-secondary"><%= trip.start_date %> to  <%= trip.end_date%></a></li>
+      <%else%>
       <li><a href="/users/<%=trip.user.id%>" class="text-primary"><%=trip.user.name%></a> is traveling in <a href="/countries/<%=country.id%>"><%=country.name%></a> from <a href="/<%=trip.id%>" class="text-secondary"><%= trip.start_date %> to  <%= trip.end_date%></a></li>
       <%end%>
       <%end%>
