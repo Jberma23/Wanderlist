@@ -24,8 +24,9 @@
     <%trip.flights.each do |flight|%>
     <% if trip.end_date > Date.today %>
 
-      <li class="list-group-item text-center" >Departing Flight Number:<%= flight.flight_number%> from <%=flight.origin_airport%> to <%=flight.destination_airport%> on <%= trip.start_date %>  and returning <%= trip.end_date%></li>
-      <li><%= trip.flights %><%= trip.start_date %> - <%= trip.end_date%></li><br>
+      <li class="list-group-item text-center" >Departing Flight Number:
+        <%= flight.flight_number%> from <%=flight.origin_airport%> to
+        <%=flight.destination_airport%> on <%= trip.start_date %> ,
       <% end %>
       <%end%>
     <% end %>
@@ -42,10 +43,10 @@
     <%end%>
   </ul>
 
-<a href="<%=@user.id%>/edit" ><button type="button">Edit This User</button></a>
-<a href="<%=@user.id%>/edit" ><button type="button">Edit This User</button></a>
+  <%= link_to "Delete This User", user_path(@user), method: "delete" %><br>
 
-<%= form_tag users_path(@user.id), method: "delete" do %>
-  <%= submit_tag "Delete This User" %>
-<%end%>
+  <a href="<%= @user.id %>/edit" ><button type="button">Edit This User</button></a><br>
 
+  <%= form_tag users_path(@user.id), method: "delete" do %>
+    <%= submit_tag "Delete This User" %>
+  <%end%>

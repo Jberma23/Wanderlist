@@ -26,15 +26,12 @@ class UsersController < ApplicationController
 
   def update
     @user.update(user_params)
-    if @user
-      @user.save
-      redirect_to @user
-    end
+    @user.save
   end
 
   def destroy
     @user = User.destroy(params[:id])
-    redirect_to @path
+    redirect_to users_path(@user)
   end
 
 
