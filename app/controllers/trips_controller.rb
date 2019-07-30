@@ -10,9 +10,11 @@ class TripsController < ApplicationController
 
   def new
     @trip = Trip.new
+    @trip.flights.build()
   end
 
   def create
+    # byebug
     @trip = Trip.new(trip_params)
     if @trip
       @trip.save
@@ -41,13 +43,9 @@ class TripsController < ApplicationController
   private
 
   def trip_params
-<<<<<<< HEAD
-    params.require(:trip).permit(:name, :start_date, :end_date, :user_id,
-    flight_ids: [], flight_attributes: [:flight_number, :country_id,
-    :origin_airport, :destination_airport])
-=======
-    params.require(:trip).permit(:name, :start_date, :end_date, :user_id, :flights_id)
->>>>>>> 96cda8550c7804eca05f73391b80ed8dcf79c55e
+    params.require(:trip).permit(:name, :start_date, :end_date, :user_id, :flights_id, flights_attributes:[ :flight_number
+
+    ])
   end
 
   def find_trip
