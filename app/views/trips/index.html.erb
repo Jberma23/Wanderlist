@@ -1,5 +1,6 @@
-<h1 class="text-center"> Lists of Trips </h1>
-<div >
+<h1 class="text-center"> List of Trips </h1>
+
+<div>
   <ul>
     <% @trips.sort_by{|trip| trip.start_date}.each do |trip| %>
     <%trip.countries.each do |country|%>

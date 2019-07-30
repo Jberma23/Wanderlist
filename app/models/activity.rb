@@ -1,3 +1,3 @@
 class Activity < ApplicationRecord
-  blongs_to :trip
+  belongs_to :trip
 end
