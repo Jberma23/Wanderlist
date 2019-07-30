@@ -1,0 +1,27 @@
+<div class="container">
+  <%= form_for (@trip) do |f| %>
+  <div class="form-group">
+    <%= f.label :trip_name, class: "form-text" %>
+    <%= f.text_field  :name, class: "form-control" %>
+  </div>
+  <div class="form-group">
+    <%= f.label :start_date, class: "form-text" %>
+    <%= f.date_field  :start_date, class: "form-control" %>
+  </div>
+  <div class="form-group">
+    <%= f.label :end_date, class: "form-text" %>
+    <%= f.date_field :end_date, class: "form-control" %>
+  </div>
+  <div class="form-group">
+    <%= f.label :user_id, class:"form-text" %>
+    <%= f.collection_select(:user_id, User.all, :id, :name, {class: "form-control"})%>
+  </div>
+  <div class="form-group">
+      <%=f.label :flights, class: "form-text"%>
+      <%= f.collection_select(:flights, Flight.all, :id, :flight_info, {class: "form-control"})%>
+  </div>
+  <div class="form-group">
+    <%= f.submit "Submit", class: "btn btn-primary" %>
+  </div>
+<%end%>
+</div>
