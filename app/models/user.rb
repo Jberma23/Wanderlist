@@ -1,6 +1,7 @@
 class User < ApplicationRecord
     has_many :trips
     has_many :countries, through: :trips
+    validates :name, presence: true
     has_secure_password
 
     def user_past_trips

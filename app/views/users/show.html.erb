@@ -4,7 +4,9 @@
 <h2 class="text-center"> Upcoming Trips </h2>
 <ul>
       <%current_user.user_future_trips.each do |trip|%>
+      <%if trip.end_date > Date.today%>
       <li class= "list-group-item text-center" > Trip Name: <%= link_to trip.name, trip_path(trip) %> Trip start date: <%=trip.start_date%> Trip end date: <%=trip.end_date%></li>
+      <%end%>
       <%end%>
 </ul>
 <br>
@@ -12,8 +14,10 @@
 <div data-spy="scroll" data-target="#navbar-example3" data-offset="0">
 <ul>
 <%current_user.user_past_trips.each do |trip|%>
+<%if trip.end_date < Date.today%>
 <li class= "list-group-item text-center" > Trip Name: <%=link_to trip.name, trip_path(trip)%> 
 Trip start date: <%=trip.start_date%> Trip end date: <%=trip.end_date%></li>
+<%end%>
 <%end%>
 </ul>
 </div>
@@ -32,8 +36,6 @@ Trip start date: <%=trip.start_date%> Trip end date: <%=trip.end_date%></li>
 
 
   <a href="<%= @user.id %>/edit" ><button type="button">Edit This User</button></a><br>
-  <%= link_to "Delete This User", user_path(@user), method: "delete" %><br>
-
-  <%= form_tag users_path(@user.id), method: "delete" do %>
+  <%= form_tag user_path(@user.id), method: "delete" do %>
     <%= submit_tag "Delete This User" %>
   <%end%>
