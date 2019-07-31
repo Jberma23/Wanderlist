@@ -7,7 +7,7 @@
     border-right: 1px solid #000;
   }
   .masthead {
-    height: 100vh;
+    height: 105vh;
     min-height: 500px;
     position: float;
     background-image: url('flight_map.jpeg');
@@ -25,5 +25,11 @@
     position: absolute;
     right: -2%;
     top: -250%;
-    width: 100px;
+    width: 200px;
+}
+.new_user{
+    position: absolute;
+    right: -2%;
+    top: -220%;
+    width: 200px;
 }
