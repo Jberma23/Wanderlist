@@ -17,9 +17,10 @@
 
 <a href="<%=@trip.id%>/edit"><button type="button">Edit Trip</button></a>
 <%= form_tag(trip_path(@trip), method: "delete") %>
-  <%= submit_tag "Delete Trip" %>
-
-
+  <%= submit_tag "Delete Trip" %><br>
+<%= form_tag(trips_path(@trips), method: "get") %>
+  <%= submit_tag "Return to All Trips" %>
+<br>
 
   <ul>
   <h3>County details</h3>

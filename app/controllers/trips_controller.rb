@@ -9,7 +9,6 @@ class TripsController < ApplicationController
   end
 
   def show
-  
   end
   
   def new
@@ -42,7 +41,11 @@ class TripsController < ApplicationController
 
   def destroy
     @trip = Trip.destroy(params[:id])
-    redirect_to trips_path
+    if @trip
+      redirect_to trips_path
+    else
+      redirect_to new_trip_path
+    end
   end
 
   private
