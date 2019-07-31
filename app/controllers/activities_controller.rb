@@ -10,7 +10,7 @@ class ActivitiesController < ApplicationController
 
   private
 
-  def country_params
+  def activity_params
       params.require(:activity).permit(:name, :description, :trip_id)
   end
 

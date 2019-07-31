@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_07_30_151312) do
+ActiveRecord::Schema.define(version: 2019_07_31_125549) do
 
   create_table "activities", force: :cascade do |t|
     t.integer "user_id"
@@ -51,9 +51,9 @@ ActiveRecord::Schema.define(version: 2019_07_30_151312) do
     t.string "name"
     t.integer "passport_number"
     t.string "username"
-    t.string "password"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "password_digest"
   end
 
 end

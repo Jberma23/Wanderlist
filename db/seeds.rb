@@ -10,15 +10,15 @@ require 'faker'
 user_counter = 0
 unless user_counter > 150
     20.times do
-        User.create(name:"#{Faker::Name.name}", passport_number: Faker::Number.number(9), username: "#{Faker::Internet.username}",password: "#{Faker::Internet.password}")
+        User.create(name:"#{Faker::Name.name}", passport_number: Faker::Number.number(9), username: "#{Faker::Internet.username}",password_digest: "#{Faker::Internet.password}")
 
-        User.create(name:"#{Faker::Name.name}", passport_number: Faker::Number.number(9), username: "#{Faker::Internet.username}",password: "#{Faker::Internet.password}")
+        User.create(name:"#{Faker::Name.name}", passport_number: Faker::Number.number(9), username: "#{Faker::Internet.username}",password_digest: "#{Faker::Internet.password}")
 
-        User.create(name:"#{Faker::Name.name}", passport_number: Faker::Number.number(9), username: "#{Faker::Internet.username}",password: "#{Faker::Internet.password}")
+        User.create(name:"#{Faker::Name.name}", passport_number: Faker::Number.number(9), username: "#{Faker::Internet.username}",password_digest: "#{Faker::Internet.password}")
 
-        User.create(name: "#{Faker::Name.name}", passport_number: Faker::Number.number(9), username: "#{Faker::Internet.username}",password: "#{Faker::Internet.password}")
+        User.create(name: "#{Faker::Name.name}", passport_number: Faker::Number.number(9), username: "#{Faker::Internet.username}",password_digest: "#{Faker::Internet.password}")
 
-        User.create(name:"#{Faker::Name.name}", passport_number: Faker::Number.number(9), username: "#{Faker::Internet.username}",password: "#{Faker::Internet.password}")
+        User.create(name:"#{Faker::Name.name}", passport_number: Faker::Number.number(9), username: "#{Faker::Internet.username}",password_digest: "#{Faker::Internet.password}")
         user_counter += 1
     end
 end

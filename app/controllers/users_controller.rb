@@ -1,5 +1,6 @@
 class UsersController < ApplicationController
-
+  helper_method :current_username
+  helper_method :current_user
   before_action :find_user, only: [:show, :edit, :update]
 
   def index
@@ -7,6 +8,9 @@ class UsersController < ApplicationController
   end
 
   def show
+    if @user.id != current_user.id
+      redirect_to user_path(current_user)
+    end
   end
 
   def new
@@ -17,6 +21,7 @@ class UsersController < ApplicationController
   @user = User.new(user_params)
     if @user
       @user.save
+      cookies[:user_id] = @user.id
       redirect_to @user
     else
       render :new
