@@ -7,6 +7,13 @@ class UsersController < ApplicationController
     @users = User.all.order('name ASC')
   end
 
+  def show
+    @user = current_user
+    if @user.id != current_user.id
+      redirect_to user_path(current_user)
+    end
+  end
+
   def new
     @user = User.new
   end
