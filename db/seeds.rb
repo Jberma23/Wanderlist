@@ -70,14 +70,20 @@ end
 claudia = User.create(name:"Claudia Solbes", passport_number: 8403948204, username: "claudiasolbes",password: "password")
 jesse = User.create(name:"Jesse", passport_number: 8403948204, username: "claudiasolbes",password: "password")
 
-bahamas = Trip.create(name:"Bahamas", :start_date => "Fri, 26 Oct 2018", :end_date => "Sat, 27 Oct 2018", user_id:300)
-portugal = Trip.create(name:"Portugal", :start_date => "Thurs, Aug 1, 2019", :end_date => "Sat, Aug 3, 2019", user_id:306)
+bahamas = Trip.create(name:"Bahamas", :start_date => "Fri, 26 Oct 2018", :end_date => "Sat, 27 Oct 2018", user_id:521)
+portugal = Trip.create(name:"Portugal", :start_date => "Thurs, Aug 1, 2019", :end_date => "Sat, Aug 3, 2019", user_id:521)
+usa = Trip.create(name:"United Stated of America", :start_date => "Fri, 26 Oct 2018", :end_date => "Sat, 27 Oct 2018", user_id:520)
+mex = Trip.create(name:"Mexico", :start_date => "Thurs, Aug 1, 2019", :end_date => "Sat, Aug 3, 2019", user_id:520)
 
-usa = Country.create(name:"United States of America", currency:"US Dollar")
 mex = Country.create(name:"Mexico", currency:"MX Peso")
+usa = Country.create(name:"United States of America", currency:"US Dollar")
+bahamas = Country.create(name:"Bahamas", currency:"Bahamian Dollar")
+portugal = Country.create(name:"Portugal", currency:"Euro")
 
-AA309 = Flight.create(flight_number:309, country_id:100, trip_id:70, origin_airport:"TAM", destination_airport:"DCA")
-S289 = Flight.create(flight_number:289, country_id:104, trip_id:77, origin_airport:"BWI", destination_airport:"FLA")
+AA309 = Flight.create(flight_number:309, country_id:525, trip_id:73, origin_airport:"TAM", destination_airport:"MTY")
+S289 = Flight.create(flight_number:289, country_id:526, trip_id:74, origin_airport:"BWI", destination_airport:"FLA")
+VA354 = Flight.create(flight_number:354, country_id:527, trip_id:75, origin_airport:"CRI", destination_airport:"FPO")
+DT150 = Flight.create(flight_number:150, country_id:528, trip_id:76, origin_airport:"LIS", destination_airport:"POR")
 
-fishing = Activity.create(user_id:300, trip_id:70, name:"fishing", description:"get on a boat and catch a fish")
-surfing = Activity.create(user_id:306, trip_id:77, name:"surfing", description:"get on a board and catch a wave")
+fishing = Activity.create(trip_id:74, name:"fishing", description:"get on a boat and catch a fish")
+surfing = Activity.create(trip_id:76, name:"surfing", description:"get on a board and catch a wave")

@@ -1,15 +1,9 @@
 <h1 class="text-center"> List of Trips </h1>
 
-<div>
-  <ul>
-    <% @trips.sort_by{|trip| trip.start_date}.each do |trip| %>
-    <%trip.countries.each do |country|%>
-      <%if trip.end_date < Date.today%>
-      <li><a href="/trips/<%=trip.id%>" class="text-primary"><%=trip.name%></a>:<a href="/users/<%=trip.user.id%>" class="text-primary"><%=trip.user.name%></a> traveled in <a href="/countries/<%=country.id%>"><%=country.name%></a>  from <a href="/<%=trip.id%>" class="text-secondary"><%= trip.start_date %> to  <%= trip.end_date%></a></li>
-      <%else%>
-      <li><a href="/users/<%=trip.user.id%>" class="text-primary"><%=trip.user.name%></a> is traveling in <a href="/countries/<%=country.id%>"><%=country.name%></a> from <a href="/<%=trip.id%>" class="text-secondary"><%= trip.start_date %> to  <%= trip.end_date%></a></li>
-      <%end%>
-      <%end%>
-    <% end %>
-  </ul>
-</div>
+<ul>
+  <% @trips.each do |trip| %>
+    <li><%= link_to trip.name, trip %><br></li>
+  <% end %>
+</ul>
+
+<%= link_to "Add Trip", new_trip_path(@trip) %>
