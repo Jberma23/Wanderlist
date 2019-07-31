@@ -17,6 +17,8 @@ class User < ApplicationRecord
             end
         end
     end
+
+
     def user_trip_countries
         self.trips.each do |trip|
             trip.flights.each do |flight|

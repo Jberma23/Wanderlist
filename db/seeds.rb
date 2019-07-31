@@ -67,8 +67,8 @@ unless flight_counter > 100
     end
 end
 
-claudia = User.create(name:"Claudia Solbes", passport_number: 8403948204, username: "claudiasolbes",password: "password")
-jesse = User.create(name:"Jesse", passport_number: 8403948204, username: "claudiasolbes",password: "password")
+claudia = User.create(name:"Claudia Solbes", passport_number: 8403948204, username: "claudiasolbes",password_digest: "password")
+jesse = User.create(name:"Jesse", passport_number: 8403948204, username: "claudiasolbes",password_digest: "password")
 
 bahamas = Trip.create(name:"Bahamas", :start_date => "Fri, 26 Oct 2018", :end_date => "Sat, 27 Oct 2018", user_id:521)
 portugal = Trip.create(name:"Portugal", :start_date => "Thurs, Aug 1, 2019", :end_date => "Sat, Aug 3, 2019", user_id:521)

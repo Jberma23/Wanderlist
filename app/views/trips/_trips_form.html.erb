@@ -14,14 +14,25 @@
   </div>
   <div class="form-group">
     <%= f.label :user_id, class:"form-text" %>
-    <%= f.collection_select(:user_id, User.all, :id, :name, {class: "form-control"})%>
+    <% x = User.all.select {|user| user.id == current_user.id}%>
+    <%= f.collection_select(:user_id, x, :id, :name, {class: "form-control"})%>
   </div>
-  <div class="form-group">
+
     <%= f.fields_for :flights do |p|%>
+    <div class="form-group">
       <%=p.label :flight_number, class: "form-text"%>
       <%=p.number_field :flight_number, class: "form-control"%>
+  
+      <%=p.label :country_id, class: "form-text"%>
+      <%=p.collection_select(:country_id, Country.all, :id, :name, {class: "form-control"})%>
+   
+      <%=p.label :origin_airport, class: "form-text"%>
+      <%=p.text_field :origin_airport, class: "form-control"%>
+        </div>
+      <%=p.label :destination_airport, class: "form-text"%>
+      <%=p.text_field :destination_airport, class: "form-control"%>
+        </div>
       <%end%>
-  </div>
   <div class="form-group">
     <%= f.submit "Submit", class: "btn btn-primary" %>
   </div>
