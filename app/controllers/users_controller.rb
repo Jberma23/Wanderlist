@@ -7,34 +7,29 @@ class UsersController < ApplicationController
     @users = User.all.order('name ASC')
   end
 
-  def show
-    @user = current_user
-    if @user.id != current_user.id
-      redirect_to user_path(current_user)
-    end
-  end
-
   def new
     @user = User.new
   end
 
   def create
-  @user = User.new(user_params)
+    @user = User.new(user_params)
       if @user.valid? 
         @user.save
         cookies[:user_id] = @user.id
-        redirect_to users_path
+        redirect_to user_path(current_user)
       else 
         render :new
     end
-      
   end
   def show
     @user = User.find(params[:id])
+    byebug
     if @user.id != current_user.id
       redirect_to user_path(current_user)
     end
   end
+
+
 
   def edit
   end
