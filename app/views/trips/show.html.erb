@@ -1,48 +1,27 @@
-<<<<<<< HEAD
-<h1><%= @trip.name %></h1>
-
-=======
 <h1><%= @trip.name.titleize%></h1>
-<%# <%byebug%> %>
-<h2 class="text-center"> Upcoming Trips </h2>
->>>>>>> 460c01097d6ef391c1e0e4afb8efae32bb817271
-<ul>
-  <% @trip.flights.each do |flight| %>
-  <% if @trip.end_date > Date.today %>
-  <%end%>
-  <li class= "list-group-item text-center" > Trip Name:
-    <%= link_to @trip.name, @trip %> Departing Flight Number:
-    <%= link_to @trip.flights, flight %> from <%= @trip.flights.origin_airport %> to
-    <%= @trip.flights.destination_airport %> on <%= trip.start_date %> ,
-    <% end %>
-    
-  </ul>
 
-<div data-spy="scroll" data-target="#navbar-example3" data-offset="0">
-<ul>
-  <% Trip.all.sort_by {|trip| trip.start_date}.each do |trip| %>
-    <% if trip.end_date < Date.today  %>
-      <li class="list-group-item text-center" > Trip Name:
-        <%= link_to trip.name, trip %> Start Date: <%= trip.start_date %>
-        End Date: <%= trip.end_date %> Activities: <%= link_to @activity,
-        activity_path %></li>
-      <% end %>
-  <% end %>
-</ul>
-</div>
-
-  <ul>
-    <%Trip.all.each do |trip|%>
-      <%trip.flights.each do |flight|%>
-        <%flight.country_id%>
-        <li class="list-group-item text-center">Country:&nbsp&nbsp<%=Country.find_by(id:flight.country_id).name%>&nbsp&nbsp   ---&nbsp &nbsp Currency:&nbsp&nbsp
-        <%=Country.find_by(id:flight.country_id).currency %></li>
-      <%end%>
-    <%end%>
-  </ul>
-
+<p> Departure Date: <%= @trip.start_date %></p>
+<p> Departure Flight Number: </p>
+<p> Departing From: </p>
+<p> Return Date: <%= @trip.end_date %></p>
+<p> Arriving At: </p>
+<p> Countries being visited: </p>
+<p> Activities: </p>
 
 <a href="<%=@trip.id%>/edit"><button type="button">Edit This Trip</button></a>
 <%= form_tag trips_path(@trip.id), method: "delete" do %>
   <%= submit_tag "Delete This Trip" %>
 <%end%>
+
+
+
+  <ul>
+    <%Trip.all.each do |trip|%>
+      <%trip.flights.each do |flight|%>
+        <%flight.country_id%>
+        <li class="list-group-item text-center">Country:
+        <%=Country.find_by(id:flight.country_id).name%><br>
+        Currency: <%=Country.find_by(id:flight.country_id).currency %></li>
+      <%end%>
+    <%end%>
+  </ul>
