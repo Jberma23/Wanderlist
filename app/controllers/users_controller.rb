@@ -4,7 +4,7 @@ class UsersController < ApplicationController
   before_action :find_user, only: [:show, :edit, :update]
 
   def index
-    @users = User.all
+    @users = User.all.order('name ASC')
   end
 
   def show
@@ -43,7 +43,7 @@ class UsersController < ApplicationController
 
   def destroy
     @user = User.destroy(params[:id])
-    redirect_to users_path
+    redirect_to home_path
   end
 
 

@@ -40,6 +40,8 @@ class TripsController < ApplicationController
   end
 
   def destroy
+    @trip = Trip.destroy(params[:id])
+    redirect_to trips_path
   end
 
   private

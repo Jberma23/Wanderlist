@@ -1,17 +1,16 @@
 <h1><%= @trip.name.titleize%></h1>
 
 <p> Departure Date: <%= @trip.start_date %></p>
-<p> Departure Flight Number: </p>
+<p> Departure Flight Number: <%=  %></p>
 <p> Departing From: </p>
 <p> Return Date: <%= @trip.end_date %></p>
 <p> Arriving At: </p>
 <p> Countries being visited: </p>
 <p> Activities: </p>
 
-<a href="<%=@trip.id%>/edit"><button type="button">Edit This Trip</button></a>
-<%= form_tag trips_path(@trip.id), method: "delete" do %>
-  <%= submit_tag "Delete This Trip" %>
-<%end%>
+<a href="<%=@trip.id%>/edit"><button type="button">Edit Trip</button></a>
+<%= form_tag(trip_path(@trip), method: "delete") %>
+  <%= submit_tag "Delete Trip" %>
 
 
 

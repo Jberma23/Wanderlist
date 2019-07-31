@@ -1,34 +1,31 @@
 <h1 class="text-center"><u><%=@user.name.titleize%>'s Trips</u></h1>
 <br>
-<a href="/trips/new"><button>Create A New Trip</button></a>
 <h2 class="text-center"> Upcoming Trips </h2>
 <ul>
-      <li class= "list-group-item text-center" > Trip Name: <%= link_to current_user.user_future_trips, user_path(current_user) %>
+<li class= "list-group-item text-center" > Trip Name: <%= link_to current_user.user_future_trips, user_path(current_user) %>
 </ul>
 <br>
 <h2 class="text-center"> Past trips </h2>
 <div data-spy="scroll" data-target="#navbar-example3" data-offset="0">
 <ul>
-      <li class= "list-group-item text-center" > Trip Name: <%= link_to current_user.user_past_trips, user_path(current_user) %>
+<li class= "list-group-item text-center" > Trip Name: <%= link_to current_user.user_past_trips, user_path(current_user) %>
 </ul>
 </div>
 <br>
-  <h2 class="text-center">Country Details</h2>
-  <ul>
-      <%if current_user.user_trip_countries != [] %>
+<h2 class="text-center">Country Details</h2>
+<ul>
+<%if current_user.user_trip_countries != [] %>
         <li class="list-group-item text-center">Country:&nbsp&nbsp<%=current_user.user_trip_countries.name%>&nbsp&nbsp   ---&nbsp &nbsp Currency:&nbsp&nbsp
         <%=current_user.user_trip_countries.currency %></li>
         <%else%>
          <li class="list-group-item text-center">Country:&nbsp&nbsp<%=current_user.user_trip_countries%>&nbsp&nbsp   ---&nbsp &nbsp Currency:&nbsp&nbsp
         <%=current_user.user_trip_countries %></li>
         <%end%>
-
+        
   </ul>
 
+  <a href="/trips/new"><button>Create A New Trip</button></a>&nbsp&nbsp
+  <a href="<%= @user.id %>/edit" ><button type="button">Edit User</button></a>&nbsp&nbsp
+  <%= link_to "Delete User", user_path(@user), method: "delete" %>
 
-  <a href="<%= @user.id %>/edit" ><button type="button">Edit This User</button></a><br>
-  <%= link_to "Delete This User", user_path(@user), method: "delete" %><br>
-
-  <%= form_tag users_path(@user.id), method: "delete" do %>
-    <%= submit_tag "Delete This User" %>
-  <%end%>
+  
