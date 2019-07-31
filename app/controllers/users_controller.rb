@@ -16,7 +16,7 @@ class UsersController < ApplicationController
     @user = User.new(user_params)
       if @user.valid? 
         @user.save
-        cookies[:user_id] = @user.id
+        session[:user_id] = @user.id
         redirect_to user_path(current_user)
       else 
         render :new
@@ -35,7 +35,7 @@ class UsersController < ApplicationController
 
   def update
     @user.update(user_params)
-    if @user
+    if @user.valid?
     @user.save
     redirect_to user_path(@user)
     else

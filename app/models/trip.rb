@@ -3,7 +3,7 @@ class Trip < ApplicationRecord
     has_many :flights
     has_many :countries, through: :flights
     accepts_nested_attributes_for :flights
-
+    validates :name, presence: true
 
     def find_user
     @user = User.find(parmas[:user_id])
