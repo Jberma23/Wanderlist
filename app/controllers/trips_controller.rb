@@ -1,11 +1,11 @@
 class TripsController < ApplicationController
   helper_method :current_username
   helper_method :current_user
-  before_action :find_trip, only: [:show, :update, :edit, :index, :destroy]
+  before_action :find_trip, only: [:show, :update, :edit, :destroy]
   
 
   def index
-    @trips = current_user.trips  
+    @trips = Trip.all  
   end
 
   def show

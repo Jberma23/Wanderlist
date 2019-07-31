@@ -7,8 +7,8 @@
       <%current_user.trips.each do |trip|%>
             <%if trip.end_date > Date.today%>
                   <li class= "list-group-item text-center" > Trip Name: <%= link_to trip.name, trip_path(trip) %> Trip start date: <%=trip.start_date%> Trip end date: <%=trip.end_date%></li>
-                  <%else " "%>
-            <%end%>     
+            <%end%>    
+      <%end%>
 
 </ul>
 
@@ -16,11 +16,11 @@
 <h2 class="text-center"> Past trips </h2>
 <div data-spy="scroll" data-target="#navbar-example3" data-offset="0">
 <ul>
-
-<%current_user.trips.uniq.each do |trip|%>
-
-<%if trip.end_date < Date.today%>
-<li class= "list-group-item text-center"> Trip Name: <%=link_to trip.name, trip_path(trip)%> 
+<%current_user.trips.each do |trip|%>
+            <%if trip.end_date < Date.today%>
+                  <li class= "list-group-item text-center" > Trip Name: <%= link_to trip.name, trip_path(trip) %> Trip start date: <%=trip.start_date%> Trip end date: <%=trip.end_date%></li>
+            <%end%> 
+      <%end%>
 </ul>
 </div>
 <br>
@@ -31,22 +31,18 @@
                   <li class="list-group-item text-center">Country:&nbsp&nbsp<%=country.name%>&nbsp&nbsp   ---&nbsp &nbsp Currency:&nbsp&nbsp <%=country.currency %></li>
 
             <%end%>
-<%end%>
-<br>
-<br>
-<br>
-<br>
-<a href="/trips/new" ><button>Create A New Trip</button></a>
+      <%end%>
 
-        <%end%>
-        <%end%>
 
-        <%end%>
+
+<br>
+<br>
+<br>
         
   </ul>
 
   <a href="/trips/new"><button>Create A New Trip</button></a>&nbsp&nbsp
   <a href="<%= @user.id %>/edit" ><button type="button">Edit User</button></a>&nbsp&nbsp
-  <%= link_to "Delete User", user_path(@user), method: "delete" %>
+  <button><%= link_to "Delete User", user_path(@user), method: "delete" %></button>
 
 

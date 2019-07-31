@@ -2,7 +2,7 @@ class UsersController < ApplicationController
   helper_method :current_username
   helper_method :current_user
   before_action :find_user, only: [:show, :edit, :update]
-  before_action :authorized, only: [:show]
+  # before_action :authorized, only: [:show]
   def index
     @users = User.all.order('name ASC')
   end
