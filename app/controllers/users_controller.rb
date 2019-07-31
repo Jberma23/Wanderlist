@@ -2,7 +2,7 @@ class UsersController < ApplicationController
   helper_method :current_username
   helper_method :current_user
   before_action :find_user, only: [:show, :edit, :update]
-
+  before_action :authorized, only: [:show]
   def index
     @users = User.all.order('name ASC')
   end
@@ -20,12 +20,19 @@ class UsersController < ApplicationController
 
   def create
   @user = User.new(user_params)
-    if @user
-      @user.save
-      cookies[:user_id] = @user.id
-      redirect_to @user
-    else
-      render :new
+      if @user.valid? 
+        @user.save
+        cookies[:user_id] = @user.id
+        redirect_to users_path
+      else 
+        render :new
+    end
+      
+  end
+  def show
+    @user = User.find(params[:id])
+    if @user.id != current_user.id
+      redirect_to user_path(current_user)
     end
   end
 

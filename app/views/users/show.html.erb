@@ -2,34 +2,84 @@
 <br>
 <h2 class="text-center"> Upcoming Trips </h2>
 <ul>
+
+
+      <%current_user.trips.each do |trip|%>
+            <%if trip.end_date > Date.today%>
+                  <li class= "list-group-item text-center" > Trip Name: <%= link_to trip.name, trip_path(trip) %> Trip start date: <%=trip.start_date%> Trip end date: <%=trip.end_date%></li>
+            <%end%>     
+
       <%current_user.user_future_trips.each do |trip|%>
       <li class= "list-group-item text-center" > Trip Name: <%= link_to trip.name, trip_path(trip) %> Trip start date: <%=trip.start_date%> Trip end date: <%=trip.end_date%></li>
       <%end%>
+
 </ul>
+
 <br>
 <h2 class="text-center"> Past trips </h2>
 <div data-spy="scroll" data-target="#navbar-example3" data-offset="0">
 <ul>
+
+<%current_user.trips.uniq.each do |trip|%>
+
+<%if trip.end_date < Date.today%>
+<li class= "list-group-item text-center"> Trip Name: <%=link_to trip.name, trip_path(trip)%> 
+
+
+<li class= "list-group-item text-center" > Trip Name: <%= link_to current_user.user_past_trips, user_path(current_user) %>
+</ul>
+</div>
+<br>
+<h2 class="text-center">Country Details</h2>
+<ul>
+<%if current_user.user_trip_countries != [] %>
+        <li class="list-group-item text-center">Country:&nbsp&nbsp<%=current_user.user_trip_countries.name%>&nbsp&nbsp   ---&nbsp &nbsp Currency:&nbsp&nbsp
+        <%=current_user.user_trip_countries.currency %></li>
+        <%else%>
+         <li class="list-group-item text-center">Country:&nbsp&nbsp<%=current_user.user_trip_countries%>&nbsp&nbsp   ---&nbsp &nbsp Currency:&nbsp&nbsp
+        <%=current_user.user_trip_countries %></li>
+
 <%current_user.user_past_trips.each do |trip|%>
 <li class= "list-group-item text-center" > Trip Name: <%=link_to trip.name, trip_path(trip)%> 
+
 Trip start date: <%=trip.start_date%> Trip end date: <%=trip.end_date%></li>
 <%end%>
+<%end%>
 </ul>
+ 
 </div>
 <br>
   <h2 class="text-center">Country Details</h2>
   <ul>
       <%if current_user.user_trip_countries != [] %>
-            <%current_user.user_trip_countries.each do |trip|%>
-                  <%trip.countries.each do |country|%>   
+      <%current_user.countries.uniq.each do |country|%>
                   <li class="list-group-item text-center">Country:&nbsp&nbsp<%=country.name%>&nbsp&nbsp   ---&nbsp &nbsp Currency:&nbsp&nbsp <%=country.currency %></li>
+
+            <%end%>
+<%end%>
+<br>
+<br>
+<br>
+<br>
+<a href="/trips/new" ><button>Create A New Trip</button></a>
+
         <%end%>
         <%end%>
+<<<<<<< HEAD
+=======
+
+>>>>>>> d7b0bdfb4fd3a3b09076d3e65b35b14f1872503c
         <%end%>
         
   </ul>
 
   <a href="/trips/new"><button>Create A New Trip</button></a>&nbsp&nbsp
   <a href="<%= @user.id %>/edit" ><button type="button">Edit User</button></a>&nbsp&nbsp
+<<<<<<< HEAD
   <%= form_tag(user_path(@user), method: "delete") %>
   <%= submit_tag "Delete User" %><br>
+=======
+  <%= link_to "Delete User", user_path(@user), method: "delete" %>
+
+
+>>>>>>> d7b0bdfb4fd3a3b09076d3e65b35b14f1872503c
