@@ -1,7 +1,7 @@
-User.destroy_all
-Trip.destroy_all
-Country.destroy_all
-Flight.destroy_all
+# User.destroy_all
+# Trip.destroy_all
+# Country.destroy_all
+# Flight.destroy_all
 
 require 'faker'
 
@@ -29,7 +29,7 @@ trip_counter = 0
 unless trip_counter > 150
     10.times do
         Trip.create(name:"#{Faker::Name.name}", start_date: Faker::Date.between(100.days.ago, Date.today), end_date: Faker::Date.between(Date.today, 1.year.from_now), user_id: User.all.sample.id)
-        
+
         Trip.create(name:"#{Faker::Name.name}", start_date: Faker::Date.between(1.year.ago, 8.months.ago), end_date: Faker::Date.between( 8.months.ago, 9.months.ago), user_id: User.all.sample.id)
 
 

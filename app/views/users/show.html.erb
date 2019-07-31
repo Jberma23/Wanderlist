@@ -1,41 +1,39 @@
 <h1 class="text-center"><u><%=current_user.name.titleize%>'s Trips</u></h1>
 <br>
-<a href="/trips/new"><button>Create A New Trip</button></a>
 <h2 class="text-center"> Upcoming Trips </h2>
 <ul>
-      <%current_user.user_future_trips.each do |trip|%>
-      <%if trip.end_date > Date.today%>
-      <li class= "list-group-item text-center" > Trip Name: <%= link_to trip.name, trip_path(trip) %> Trip start date: <%=trip.start_date%> Trip end date: <%=trip.end_date%></li>
-      <%end%>
+
+      <%current_user.trips.each do |trip|%>
+            <%if trip.end_date > Date.today%>
+                  <li class= "list-group-item text-center" > Trip Name: <%= link_to trip.name, trip_path(trip) %> Trip start date: <%=trip.start_date%> Trip end date: <%=trip.end_date%></li>
+            <%end%>     
       <%end%>
 </ul>
+
 <br>
 <h2 class="text-center"> Past trips </h2>
 <div data-spy="scroll" data-target="#navbar-example3" data-offset="0">
 <ul>
-<%current_user.user_past_trips.each do |trip|%>
+<%current_user.trips.uniq.each do |trip|%>
+
 <%if trip.end_date < Date.today%>
-<li class= "list-group-item text-center" > Trip Name: <%=link_to trip.name, trip_path(trip)%> 
+<li class= "list-group-item text-center"> Trip Name: <%=link_to trip.name, trip_path(trip)%> 
 Trip start date: <%=trip.start_date%> Trip end date: <%=trip.end_date%></li>
 <%end%>
 <%end%>
 </ul>
+ 
 </div>
 <br>
   <h2 class="text-center">Country Details</h2>
   <ul>
       <%if current_user.user_trip_countries != [] %>
-            <%current_user.user_trip_countries.each do |trip|%>
-                  <%trip.countries.each do |country|%>   
+      <%current_user.countries.uniq.each do |country|%>
                   <li class="list-group-item text-center">Country:&nbsp&nbsp<%=country.name%>&nbsp&nbsp   ---&nbsp &nbsp Currency:&nbsp&nbsp <%=country.currency %></li>
-        <%end%>
-        <%end%>
-        <%end%>
-
-  </ul>
-
-
-  <a href="<%= @user.id %>/edit" ><button type="button">Edit This User</button></a><br>
-  <%= form_tag user_path(@user.id), method: "delete" do %>
-    <%= submit_tag "Delete This User" %>
-  <%end%>
+            <%end%>
+<%end%>
+<br>
+<br>
+<br>
+<br>
+<a href="/trips/new" ><button>Create A New Trip</button></a>

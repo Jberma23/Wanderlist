@@ -2,6 +2,6 @@
 
 <ul>
   <% @activities.each do |activity| %>
-    <li><%= link_to activity.name, activity %></li>
+    <li><%= link_to activity.name.capitalize, activity %></li>
   <% end %>
 </ul>

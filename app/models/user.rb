@@ -5,16 +5,16 @@ class User < ApplicationRecord
     has_secure_password
 
     def user_past_trips
-        self.trips.sort_by{|trip| trip.start_date}.each do |trip|
+        self.trips.uniq.sort_by{|trip| trip.start_date}.each do |trip|
             if trip.end_date > Date.today 
-                trip.name
+                trip
             end
         end
     end
     def user_future_trips
-        self.trips.sort_by{|trip| trip.start_date}.each do |trip|
+        self.trips.uniq.sort_by{|trip| trip.start_date}.each do |trip|
             if trip.end_date < Date.today 
-                trip.name
+                trip
             end
         end
     end
