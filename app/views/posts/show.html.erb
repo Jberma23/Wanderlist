@@ -1,0 +1,11 @@
+<h1><%= @post.title %></h1>
+<h3>By: <%= link_to @post.user.name, user_path(@post.user.id) %></h3>
+<% pre_like = @post.likes.find { |like| like.user_id == current_user.id} %>
+<% if pre_like %>
+  <%= button_to 'Unlike', post_like_path(@post, pre_like), method: :delete %>
+<% else %>
+  <%= button_to 'Like', post_likes_path(@post), method: :post %>
+<% end %>
+<h3><%= @post.content %></h3>
+<%= link_to "Back to All Posts", posts_path %>&nbsp&nbsp
+<%= link_to "Edit Post", edit_post_path %>

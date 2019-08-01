@@ -1,7 +1,12 @@
 class PostsController < ApplicationController
+
+
     def index
         @posts = Post.all
     end
+    # def newsfeed
+    #     @posts = Post.all
+    # end
     def show
         @post = Post.find(params[:id])
     end
@@ -22,8 +27,10 @@ class PostsController < ApplicationController
         @post = Post.find(params[:id])
     end
     def update
-        @post = Post.update(post_params)
-        if @post.save
+        @post = Post.find(params[:id])
+        @post.update(post_params)
+        if @post.valid?
+            @post.save
             redirect_to post_path(@post)
         else 
             render :edit

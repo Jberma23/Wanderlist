@@ -1,6 +1,10 @@
 Rails.application.routes.draw do
   resources :likes
-  resources :posts
+  resources :posts do 
+    resources :likes
+  end
+  # get "/posts/newsfeed", to: "post#newsfeed", as: "/newsfeed"
+  # post "posts/new", to: "post#newsfeed"
   resources :activities
   resources :trips
   resources :countries

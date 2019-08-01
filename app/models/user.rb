@@ -3,7 +3,7 @@ class User < ApplicationRecord
     has_many :countries, through: :trips
     has_many :posts
     has_many :likes
-    has_many :liked_posts, through: :likes, source: :post
+    has_many :likes, dependent: :destroy
     accepts_nested_attributes_for :trips
     validates :name, presence: true
     has_secure_password
