@@ -1,51 +1,18 @@
-// Place all the styles related to the Welcome controller here.
-// They will automatically be included in application.css.
-// You can use Sass (SCSS) here: http://sass-lang.com/
-.style_image {
-    align-self: center;
-    height: 200vh;
-    border-right: 1px solid #000;
-  }
-  .masthead {
-    height: 400px;
-    min-height: 400px;
-    position: float;
-    background-image: url('flight_map.jpeg');
-    background-size: 1450px;
-    background-position: 80% 30%; 
-    background-position: sticky;
-    background-repeat: no-repeat;
-  }
-  .font-weight-light{
-      color: white;
-  }
-  .lead{
-    color: white;
+.column {
+  float: left;
+  width: 33.33%;
 }
-.login{
-    position: fixed;
-    right: 9.5px;
-    bottom: 188px;
-    width: 105px;
-    border: outset;
-    border-color: rgb(186, 186, 186);
-}
-.login_button{
-  right: 9.5px;
-  width: 100px;
-}
-// rgb(216, 216, 216) 
-// rgb(186, 186, 186);
-.register_button{
-  width: 100px;
-  right: 9.5px;
 
+/* Clear floats after the columns */
+.row:after {
+  content: "";
+  display: table;
+  clear: both;
 }
-.register{
-    position: fixed;
-    right: 400px;
-    bottom: 188px;
-    width: 105px;
-    border: outset;
-    border-color: rgb(186, 186, 186);
+
+/* Responsive layout - makes the three columns stack on top of each other instead of next to each other on smaller screens (600px wide or less) */
+@media screen and (max-width: 600px) {
+  .column {
+    width: 100%;
+  }
 }
