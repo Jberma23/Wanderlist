@@ -26,8 +26,8 @@ stub custom
 }
 .login{
     position: fixed;
-    right: 9.5px;
-    bottom: 188px;
+    right: 8px;
+    top: 1px;
     width: 105px;
     border: outset;
     border-color: rgb(186, 186, 186);
@@ -48,8 +48,8 @@ stub custom
   
 .register{
     position: fixed;
-    right: 400px;
-    bottom: 188px;
+    left: 8px;
+    top: 1px;
     width: 105px;
     border: outset;
     border-color: rgb(186, 186, 186);

@@ -17,8 +17,6 @@
       <div class="col-12 text-center">
         <h1 class="font-weight-light">Welcome to TripTracker</h1>
         <p class="lead">Great Adventures Start Here</p>
-        <%= link_to "<button class='login_button'>Login</button>".html_safe, login_path, class:"login"%>
-        <%=link_to "<button class='register_button'>Register</button>".html_safe, new_user_path, class:"register"%> 
       </div>
     </div>
   </div>
@@ -34,39 +32,16 @@
     <ul class="navbar-nav mr-auto">
       <li class="nav-item active">
        
-        <a class="nav-link" href="/users">My Profile <span class="sr-only">(current)</span></a>
+        <a class="nav-link" href="/login"> Login <span class="sr-only">(current)</span></a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" href="#">Link</a>
+        <a class="nav-link" href="/users/new">Register</a>
       </li>
-      <li class="nav-item dropdown">
-        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-          Dropdown
-        </a>
-        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-          <a class="dropdown-item" href="#">Action</a>
-          <a class="dropdown-item" href="#">Another action</a>
-          <div class="dropdown-divider"></div>
-          <a class="dropdown-item" href="#">Something else here</a>
-        </div>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link disabled" href="#">Disabled</a>
-      </li>
-    </ul>
-    <form class="form-inline my-2 my-lg-0">
-      <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
-      <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
-    </form>
   </div>
 </nav>
 </div>
 <div>
-<ul>
-<%Post.all.each do |post|%>
-<li><%=post.title%> <%= post.content%></li>
-<%end%>
-</ul>
+
 
 
 

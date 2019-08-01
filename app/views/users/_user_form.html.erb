@@ -33,8 +33,8 @@
  <%= f.label "Password must contain 8 or more characters, a number, a lower case character, an upper case character & a symbol.", class: "form-text"%><br>
  </div>
  <div class="form-group">
- <%=f.label :password_confirmation %>
- <%=f.password_field :password_confirmation%>
+ <%=f.label :password_confirmation, class: "form-text" %>
+ <%=f.password_field :password_confirmation, class:"form-control", placeholder: "Password"%>
  </div>
  <div class="form-group">
  <%= token_tag %> 
