@@ -64,8 +64,7 @@
 <div>
 <ul>
 <%Post.all.each do |post|%>
-<%user = User.all.find%>
-<li><%=post.title, class:"post_title"%><%=user.name, class: "author"%><%= post.content, class: "post_content"%></li>
+<li><%=post.title%> <%= post.content%></li>
 <%end%>
 </ul>
 
