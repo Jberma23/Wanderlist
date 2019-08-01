@@ -2,8 +2,17 @@ class UsersController < ApplicationController
   helper_method :current_username
   helper_method :current_user
   before_action :find_user, only: [:show, :edit, :update]
-  # before_action :authorized, only: [:show]
+  before_action :authorized, except: [:new, :create, :index]
 
+
+
+
+
+
+
+
+
+  
   def index
     @users = User.all.order('name ASC')
   end
@@ -53,7 +62,7 @@ class UsersController < ApplicationController
 
   def user_params
     params.require(:user).permit(:id, :name, :passport_number, :username,
-      :password, trip_ids: [], trips_attributes:[ :name, :start_date, :end_date])
+      :password, :password_confirmation, trip_ids: [], trips_attributes:[ :name, :start_date, :end_date])
   end
 
   def find_user

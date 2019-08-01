@@ -7,5 +7,6 @@
    <button><%= link_to ' ', post_likes_path(@post), method: :post, class: "far fa-heart"%></button>
 <% end %>
 <h3><%= @post.content %></h3>
-<%= link_to "Back to All Posts", posts_path %>&nbsp&nbsp
-<%= link_to "Edit Post", edit_post_path %>
+
+<button><%= link_to 'Back to All Posts', posts_path %></button>
+<button><%= link_to "Edit Post", edit_post_path  %></button>

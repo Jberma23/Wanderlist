@@ -40,8 +40,9 @@
 <br>
 
   </ul>
-      <a><%= link_to "Create A New Trip", new_trip_path%></a>&nbsp&nbsp
-      <a><%=link_to "Edit User", edit_user_path%></a>&nbsp&nbsp
-      <a><%= link_to "Delete User", "users/#{@user.id}", method: :delete%></a>&nbsp&nbsp
-      <a><%= link_to "Create New Post", new_post_path%></a>&nbsp&nbsp
-      <a><%= link_to "#{@user.name}'s Posts" , posts_path%></a>
+      <button><%= link_to "Create A New Trip", new_trip_path%></button>&nbsp&nbsp
+      <button><%=link_to "Edit User", edit_user_path%></button>&nbsp&nbsp
+      <button><%= link_to "Delete User", "/#{@user.id}", method: :delete, data: {confirm: "Are you sure?"} %></button>&nbsp&nbsp
+      <button><%= link_to "Create New Post", new_post_path%></button>&nbsp&nbsp
+      <button><%= link_to "#{@user.name}'s Posts" , posts_path%></button>
+      <button><%= link_to "Logout", logout_path  %></button>

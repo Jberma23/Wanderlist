@@ -1,4 +1,19 @@
+
+
+
+
+
+
 <div class="container">
+<div>
+<% if @user.errors.any? %>
+    <ul>
+    <% @user.errors.full_messages.each do |e| %>
+        <li class="error"><%= e %></li>
+    <% end %>
+    </ul>
+<% end %>
+</div>
 <%= form_for @user do |f| %>
  <div class="form-group">
  <%= f.label :name, class: "form-text"%><br>
@@ -17,7 +32,11 @@
  <%= f.password_field :password, class:"form-control", placeholder: "Password" %>
  </div>
  <div class="form-group">
+ <%=f.label :password_confirmation %>
+ <%=f.password_field :password_confirmation%>
+ </div>
+ <div class="form-group">
  <%= token_tag %> 
  <%= f.submit "Submit", class: "btn btn-primary" %>
+ <%end %>
  </div>
-<%end %>

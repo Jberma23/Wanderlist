@@ -1,5 +1,5 @@
 class PostsController < ApplicationController
-
+    before_action :authorized, except: [:index]
 
     def index
         @posts = Post.all
@@ -16,7 +16,7 @@ class PostsController < ApplicationController
     end
     def create
         @post = Post.new(post_params)
-        if @post
+        if @post.valid?
             @post.save
             redirect_to post_path(@post)
         else 
@@ -29,9 +29,11 @@ class PostsController < ApplicationController
     def update
         @post = Post.find(params[:id])
         @post.update(post_params)
+        byebug
         if @post.valid?
             @post.save
-            redirect_to post_path(@post)
+            
+            redirect_to @post
         else 
             render :edit
         end

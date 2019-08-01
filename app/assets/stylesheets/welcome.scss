@@ -7,11 +7,12 @@
     border-right: 1px solid #000;
   }
   .masthead {
-    height: 70vh;
-    min-height: 500px;
+    height: 400px;
+    min-height: 400px;
     position: float;
     background-image: url('flight_map.jpeg');
-    background-size: cover;
+    background-size: 1450px;
+    background-position: 80% 30%; 
     background-position: sticky;
     background-repeat: no-repeat;
   }
@@ -25,14 +26,26 @@
     position: fixed;
     right: 9.5px;
     bottom: 188px;
-    width: 150px;
+    width: 105px;
     border: outset;
-    border-color: light grey;
+    border-color: rgb(186, 186, 186);
 }
-.new_user{
+.login_button{
+  right: 9.5px;
+  width: 100px;
+}
+// rgb(216, 216, 216) 
+// rgb(186, 186, 186);
+.register_button{
+  width: 100px;
+  right: 9.5px;
+
+}
+.register{
     position: fixed;
-    right: 2px;
-    top: 1px;
-    width: 200px;
+    right: 400px;
+    bottom: 188px;
+    width: 105px;
     border: outset;
+    border-color: rgb(186, 186, 186);
 }

@@ -1,5 +1,6 @@
 class CountriesController < ApplicationController
     before_action :find_country, only: [:show]
+  
 
     def index
       @countries = Country.all.order('name ASC')

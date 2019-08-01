@@ -1,6 +1,7 @@
 class LikesController < ApplicationController
     before_action :find_post
     before_action :find_like, only: [:destroy]
+    before_action :authorized 
     def create
         if already_liked?
             flash[:notice] = "You've already liked this post"

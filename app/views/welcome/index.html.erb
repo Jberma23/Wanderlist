@@ -5,16 +5,16 @@
     <div class="row h-100 align-items-center">
       <div class="col-12 text-center">
         <h1 class="font-weight-light">Welcome to TripTracker</h1>
-        <p class="lead">A great starter layout for a landing page</p>
-        <button class="login"><%= link_to "login", login_path%></button>
-        <button class="create_user"><%=link_to "Register", new_user_path%><button>
+        <p class="lead">Great Adventures Start Here</p>
+        <%= link_to "<button class='login_button'>Login</button>".html_safe, login_path, class:"login"%>
+        <%=link_to "<button class='register_button'>Register</button>".html_safe, new_user_path, class:"register"%>
       </div>
     </div>
   </div>
 </header>
 <div>
 <nav class="navbar navbar-expand-lg navbar-light bg-light">
-  <a class="navbar-brand" href="#">Navbar</a>
+  <a class="navbar-brand" href="/home">Home</a>
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
   </button>
@@ -22,7 +22,8 @@
   <div class="collapse navbar-collapse" id="navbarSupportedContent">
     <ul class="navbar-nav mr-auto">
       <li class="nav-item active">
-        <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
+       
+        <a class="nav-link" href="/users">My Profile <span class="sr-only">(current)</span></a>
       </li>
       <li class="nav-item">
         <a class="nav-link" href="#">Link</a>

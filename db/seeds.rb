@@ -39,12 +39,12 @@ unless trip_counter > 150
     end
 end
 
-
+# Faker::LoremFlickr.image(size: "50x60", search_terms: ['sports', 'fitness'])
 
 country_counter = 0
 unless country_counter > 150
     25.times do
-        Country.create(name: "#{Faker::Address.country}", currency: "#{Faker::Currency.code}")
+        Country.find_or_create_by(name: "#{Faker::Address.country}", currency: "#{Faker::Currency.code}")
 
         Country.create(name: "#{Faker::Address.country}", currency: "#{Faker::Currency.code}")
 
