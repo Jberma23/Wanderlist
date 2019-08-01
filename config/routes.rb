@@ -13,7 +13,7 @@ Rails.application.routes.draw do
   get "/login", to: "sessions#new"
   post "/login", to: "sessions#create"
   get "/logout", to: "sessions#logout"
-  get '/wanderlist', to: "welcome#index", as: :home
+  get '/home', to: "welcome#index", as: :home
   root :to => "welcome#index"
   
   

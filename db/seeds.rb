@@ -1,7 +1,12 @@
-User.destroy_all
-Trip.destroy_all
-Flight.destroy_all
-Country.destroy_all
+# User.destroy_all
+# Trip.destroy_all
+# Flight.destroy_all
+# # Country.destroy_all
+# Post.destroy_all
+
+
+
+
 
 Afghanistan = Country.create(name: "Afghanistan", currency: "Afghan afghani, ؋")
 Åland_Islands = Country.create(name: "Åland Islands", currency: "Euro, €")
@@ -253,3 +258,59 @@ Western_Sahara = Country.create(name: "Western Sahara", currency: "Moroccan dirh
 Yemen = Country.create(name: "Yemen", currency: "Yemeni rial, ﷼")
 Zambia = Country.create(name: "Zambia", currency: "Zambian kwacha, ZK")
 Zimbabwe = Country.create(name: "Zimbabwe", currency: "Botswana pula, P & British pound, £ & Chinese yuan, ¥ & Euro, € & Indian rupee, ₹ & Japanese yen, ¥ & South African rand, Rs & United States dollar, $")
+
+# user
+15.times do
+User.create(name: "#{Faker::Name.name}", passport_number: Faker::Number.number(digits: 5),user_name: "#{Faker::Internet.username}", password:"#{Faker::Internet.password(min_length: 10, max_length: 20, mix_case: true, special_chars: true)}")
+User.create(name: "#{Faker::Name.name}", passport_number:Faker::Number.number(digits: 5) ,user_name: "#{Faker::Internet.username}", password:"#{Faker::Internet.password(min_length: 10, max_length: 20, mix_case: true, special_chars: true)}")
+User.create(name: "#{Faker::Name.name}", passport_number:Faker::Number.number(digits: 5) ,user_name: "#{Faker::Internet.username}", password:"#{Faker::Internet.password(min_length: 10, max_length: 20, mix_case: true, special_chars: true)}")
+User.create(name: "#{Faker::Name.name}", passport_number:Faker::Number.number(digits: 5) ,user_name: "#{Faker::Internet.username}", password:"#{Faker::Internet.password(min_length: 10, max_length: 20, mix_case: true, special_chars: true)}")
+end
+#trip
+15.times do
+Trip.create(start_date: Faker::Date.between(from: 12.months.ago, to: 6.months.ago), end_date: Faker::Date.between(from: 6.months.ago, to: 2.months.ago) , user_id: User.all.sample, name:"#{Faker::Address.country} Trip")
+Trip.create(start_date: Faker::Date.between(from: 12.months.ago, to: 6.months.ago), end_date:Faker::Date.between(from: 6.months.ago, to: 2.months.ago) , user_id: User.all.sample, name:"#{Faker::Address.country} Trip")
+Trip.create(start_date: Faker::Date.between(from: 2.months.from_now, to: 6.months.from_now), end_date: Faker::Date.between(from: 6.months.from_now, to: 12.months.from_now) , user_id: User.all.sample, name:"#{Faker::Address.country} Trip")
+Trip.create(start_date:Faker::Date.between(from: 2.months.from_now, to: 6.months.from_now), end_date: Faker::Date.between(from: 6.months.from_now, to: 12.months.from_now) , user_id: User.all.sample, name:"#{Faker::Address.country} Trip")
+Trip.create(start_date:Faker::Date.between(from: 2.months.from_now, to: 6.months.from_now), end_date: Faker::Date.between(from: 6.months.from_now, to: 12.months.from_now) , user_id: User.all.sample, name:"#{Faker::Address.country} Trip")
+Trip.create(start_date:Faker::Date.between(from: 2.months.from_now, to: 6.months.from_now), end_date: Faker::Date.between(from: 6.months.from_now, to: 12.months.from_now) , user_id: User.all.sample, name:"#{Faker::Address.country} Trip")
+end
+#flights
+15.times do 
+Flight.create(flight_number: Faker::Number.number(digits: 5), country_id: Country.all.sample ,trip_id: Trip.all.sample, origin_airport:"#{Faker::Name.initials}" , destination_airport:"#{Faker::Name.initials}")
+Flight.create(flight_number: Faker::Number.number(digits: 5), country_id: Country.all.sample ,trip_id: Trip.all.sample, origin_airport:"#{Faker::Name.initials}" , destination_airport:"#{Faker::Name.initials}")
+Flight.create(flight_number: Faker::Number.number(digits: 5), country_id: Country.all.sample ,trip_id: Trip.all.sample, origin_airport:"#{Faker::Name.initials}" , destination_airport:"#{Faker::Name.initials}")
+Flight.create(flight_number: Faker::Number.number(digits: 5), country_id: Country.all.sample ,trip_id: Trip.all.sample, origin_airport:"#{Faker::Name.initials}" , destination_airport:"#{Faker::Name.initials}")
+Flight.create(flight_number: Faker::Number.number(digits: 5), country_id: Country.all.sample ,trip_id: Trip.all.sample, origin_airport:"#{Faker::Name.initials}" , destination_airport:"#{Faker::Name.initials}")
+end
+#activity
+15.times do
+Activity.create(trip_id:Trip.all.sample ,name: "#{Faker::Verb.ing_form}", description:"#{Faker::Lorem.sentences(number: 1)}"
+Activity.create(trip_id:Trip.all.sample ,name: "#{Faker::Verb.ing_form}", description:"#{Faker::Lorem.sentences(number: 1)}"
+Activity.create(trip_id:Trip.all.sample ,name: "#{Faker::Verb.ing_form}", description:"#{Faker::Lorem.sentences(number: 1)}"
+Activity.create(trip_id:Trip.all.sample ,name: "#{Faker::Verb.ing_form}", description:"#{Faker::Lorem.sentences(number: 1)}"
+Activity.create(trip_id:Trip.all.sample ,name: "#{Faker::Verb.ing_form}", description:"#{Faker::Lorem.sentences(number: 1)}"
+end
+
+15.times do 
+Post.create(title:"#{Faker::Lorem.sentences(number: 1)}", content:"#{Faker::Lorem.paragraph(sentence_count: (3..10))}", user_id:User.all.sample)
+Post.create(title:"#{Faker::Lorem.sentences(number: 1)}", content:"#{Faker::Lorem.paragraph(sentence_count: (3..10))}", user_id:User.all.sample)
+Post.create(title:"#{Faker::Lorem.sentences(number: 1)}", content:"#{Faker::Lorem.paragraph(sentence_count: (3..10))}", user_id:User.all.sample)
+Post.create(title:"#{Faker::Lorem.sentences(number: 1)}", content:"#{Faker::Lorem.paragraph(sentence_count: (3..10))}", user_id:User.all.sample)
+Post.create(title:"#{Faker::Lorem.sentences(number: 1)}", content:"#{Faker::Lorem.paragraph(sentence_count: (3..10))}", user_id:User.all.sample)
+end
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

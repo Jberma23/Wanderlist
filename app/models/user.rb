@@ -13,6 +13,7 @@ class User < ApplicationRecord
     has_many :likes, dependent: :destroy
     accepts_nested_attributes_for :trips
     validates :name, presence: true
+    validates :username, presence: true, uniqueness: true
     validates :password, 
         presence: true, 
         length: { in: (8..25) }, 
