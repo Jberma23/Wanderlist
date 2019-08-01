@@ -1,6 +1,9 @@
 class User < ApplicationRecord
     has_many :trips
     has_many :countries, through: :trips
+    has_many :posts
+    has_many :likes
+    has_many :liked_posts, through: :likes, source: :post
     accepts_nested_attributes_for :trips
     validates :name, presence: true
     has_secure_password

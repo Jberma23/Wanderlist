@@ -6,11 +6,13 @@ class PostsController < ApplicationController
         @post = Post.find(params[:id])
     end
     def new
+        @user = current_user
         @post = Post.new
     end
     def create
         @post = Post.new(post_params)
-        if @post.save
+        if @post
+            @post.save
             redirect_to post_path(@post)
         else 
             render :new
@@ -33,6 +35,7 @@ class PostsController < ApplicationController
       end
       private
       def post_params
+        params.require(:post).permit(:title, :content, :user_id)
       end
       def find_post
         @post = Post.find(params[:id])
