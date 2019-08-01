@@ -3,16 +3,16 @@
 // You can use Sass (SCSS) here: http://sass-lang.com/
 .style_image {
     align-self: center;
-
+    height: 200vh;
     border-right: 1px solid #000;
   }
   .masthead {
-    height: 100vh;
+    height: 70vh;
     min-height: 500px;
     position: float;
     background-image: url('flight_map.jpeg');
     background-size: cover;
-    background-position: center;
+    background-position: sticky;
     background-repeat: no-repeat;
   }
   .font-weight-light{
@@ -22,14 +22,17 @@
     color: white;
 }
 .login{
-    position: absolute;
-    right: -2%;
-    top: -250%;
-    width: 200px;
+    position: fixed;
+    right: 9.5px;
+    bottom: 188px;
+    width: 150px;
+    border: outset;
+    border-color: light grey;
 }
 .new_user{
-    position: absolute;
-    right: -2%;
-    top: -220%;
+    position: fixed;
+    right: 2px;
+    top: 1px;
     width: 200px;
+    border: outset;
 }

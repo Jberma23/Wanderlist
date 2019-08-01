@@ -40,7 +40,8 @@
 <br>
 
   </ul>
-
-  <a href="/trips/new"><button>Create A New Trip</button></a>&nbsp&nbsp
-  <a href="<%= @user.id %>/edit" ><button type="button">Edit User</button></a>&nbsp&nbsp
-  <button><%= link_to "Delete User", user_path(@user), method: "delete" %></button>
+      <a><%= link_to "Create A New Trip", new_trip_path%></a>&nbsp&nbsp
+      <a><%=link_to "Edit User", edit_user_path%></a>&nbsp&nbsp
+      <a><%= link_to "Delete User", "users/#{@user.id}", method: :delete%></a>&nbsp&nbsp
+      <a><%= link_to "Post", new_post_path%></a>
+      

@@ -5,21 +5,22 @@ class TripsController < ApplicationController
   
 
   def index
-    @trips = Trip.all  
+    @trips = current_user.trips
   end
 
   def show
   end
   
   def new
+    @user = current_user
     @trip = Trip.new
+    @user.trips.build()
     @trip.flights.build()
   end
   
   def create
-    @trip = Trip.new(trip_params)
+    @trip = Trip.create(trip_params)
     if @trip.valid?
-      @trip.save
       redirect_to trip_path(@trip)
     else
       render :new
@@ -55,6 +56,6 @@ class TripsController < ApplicationController
   end
 
   def find_trip
-    @trip = Trip.find(params[:id])
+    @trip = current_user.trips.find(params[:id])
   end
 end

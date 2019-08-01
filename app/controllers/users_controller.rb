@@ -37,7 +37,7 @@ class UsersController < ApplicationController
     @user.update(user_params)
     if @user.valid?
     @user.save
-    redirect_to user_path(@user)
+    redirect_to user_path(@user.id)
     else
       render :edit
     end
@@ -53,7 +53,7 @@ class UsersController < ApplicationController
 
   def user_params
     params.require(:user).permit(:id, :name, :passport_number, :username,
-      :password)
+      :password, trip_ids: [], trips_attributes:[ :name, :start_date, :end_date])
   end
 
   def find_user

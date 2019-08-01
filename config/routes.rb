@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  resources :likes
+  resources :posts
   resources :activities
   resources :trips
   resources :countries
