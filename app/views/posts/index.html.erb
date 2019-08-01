@@ -2,6 +2,6 @@
 
 <ul>
 <% @posts.each do |post| %>
-    <li><%= link_to post.title, post %>   <%= post.likes.count%>   <%=(post.likes.count) ==1 ? 'Like': 'Likes'%></li>
+    <li><%= link_to post.title, post %>&nbsp&nbsp&nbsp&nbsp<%= post.likes.count%>&nbsp<%=(post.likes.count) ==1 ? 'Like': 'Likes'%></li>
     <% end %>
 </ul>
