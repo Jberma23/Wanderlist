@@ -1,17 +1,17 @@
 <br>
-<h1 class="text-center"><u><%=current_user.name.titleize%>'s Travel Page</u></h1>
+<h1 class="text-center" style="font-family: 'Permanent Marker', cursive;"><u><%=current_user.name.titleize%>'s Travel Page</u></h1>
 
 <br>
 <br>
 
-<h2 class="text-center"> Upcoming Trips </h2>
+<h2 class="text-center" style="font-family: 'Permanent Marker', cursive;"> Upcoming Trips </h2>
 &nbsp&nbsp
 <div class="card-deck justify-content-md-center">
 <%current_user.trips.each do |trip|%>
 <%if trip.end_date > Date.today%>
 <div class="row">
 <div class="card bg-light mb-3" style="max-width: 18rem;">
-      <h4 class="card-header"><%= link_to trip.name.titleize, trip_path(trip) %></h4>
+      <h4 class="card-header" style="font-family: 'Permanent Marker', cursive;"><%= link_to trip.name.titleize, trip_path(trip) , class: "text-secondary"  %></h4>
       <div class="card-body">
       <p class="card-text">Trip start date: <%=trip.start_date%></p>
       <p class="card-text">Trip end date: <%=trip.end_date%>.</p>
@@ -27,14 +27,14 @@
 <br>
 <br>
 
-<h2 class="text-center"> Past trips </h2>
+<h2 class="text-center" style="font-family: 'Permanent Marker', cursive;"> Past trips </h2>
 &nbsp&nbsp
 <div class="card-deck justify-content-md-center">
 <%current_user.trips.each do |trip|%>
       <%if trip.end_date < Date.today%>
       <div class="row">
       <div class="card bg-light mb-3" style="max-width: 18rem;">
-            <h4 class="card-header"><%= link_to trip.name.titleize, trip_path(trip) %></h4>
+            <h4 class="card-header" style="font-family: 'Permanent Marker', cursive;"><%= link_to trip.name.titleize, trip_path(trip), class: "text-secondary" %></h4>
             <div class="card-body">
             <p class="card-text">Trip start date: <%=trip.start_date%></p>
             <p class="card-text">Trip end date: <%=trip.end_date%>.</p>
@@ -49,14 +49,14 @@
 <br>
 <br>
       
-  <h2 class="text-center">Countries Visited</h2>
+  <h2 class="text-center" style="font-family: 'Permanent Marker', cursive;">Countries Visited</h2>
   &nbsp&nbsp
   <div class="card-deck justify-content-md-center">
   <%if current_user.user_trip_countries != [] %>
   <%current_user.countries.uniq.each do |country|%>
   <div class="row">
   <div class="card bg-light mb-3" style="max-width: 18rem;">
-  <h4 class="card-header"><%=link_to country.name, country%></h4>
+  <h4 class="card-header" style="font-family: 'Permanent Marker', cursive;"><%=link_to country.name, country, class: "text-secondary"%></h4>
   <div class="card-body">
     <h5 class="card-title">Currency: </h5>
     <p class="card-text"><%=country.currency %><p>
@@ -71,13 +71,13 @@
 <br>
 <br>
 
-<h2 class="text-center"> Posts </h2>
+<h2 class="text-center" style="font-family: 'Permanent Marker', cursive;"> Posts </h2>
 &nbsp&nbsp
 <div class="card-deck justify-content-md-center">
 <%current_user.posts.each do |post|%>
       <div class="row">
       <div class="card bg-light mb-3" style="max-width: 18rem;">
-            <h4 class="card-header"><%= link_to post.title.titleize, post_path(post) %></h4>
+            <h4 class="card-header" style="font-family: 'Permanent Marker', cursive;"><%= link_to post.title.titleize, post_path(post), class: "text-secondary"%></h4>
             <div class="card-body">
             <p class="card-text"><%=post.title%></p>
             <p class="card-text"><%=post.content%></p>

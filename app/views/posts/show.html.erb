@@ -1,7 +1,7 @@
 
 <div class="card" style="width: 80rem;">
 <div class="card-body">
-<h1><%= @post.title.titleize %></h1>
+<h1 style="font-family: 'Permanent Marker', cursive;"><%= @post.title.titleize %></h1>
 <h3> By: <%= link_to @post.user.name.titleize, user_path(@post.user.id) %></h3>
         <p class="card-text"><%= @post.content %></p>
         <% pre_like = @post.likes.find { |like| like.user_id == current_user.id} %>
