@@ -1,11 +1,9 @@
 <h1 class="text-center"> List of Trips</h1>
 
-
-<ul>
-  <% @trips.each do |trip| %>
-    <li><%= link_to trip.name, trip_path(trip) %><br></li>
-  <% end %>
-</ul>
-
-<button><%=link_to "add new trip", new_trip_path%></button><br>
-<button><%= link_to "MyPage", user_path(current_user.id)%></button>
+<% @trips.each do |trip| %>
+<div class="card">
+  <div class="card-body">
+    <h1><%= link_to trip.name.titleize, trip_path(trip), class:"link_color" %><br></h1>
+  </div>
+<% end %>
+</div>

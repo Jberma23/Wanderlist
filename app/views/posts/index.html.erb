@@ -1,9 +1,10 @@
 <h1> All Posts </h1>
 
-<ul>
 <% @posts.each do |post| %>
-    <li><%= link_to post.title, post %>&nbsp&nbsp&nbsp&nbsp<%= post.likes.count%>&nbsp<%=(post.likes.count) ==1 ? 'Like': 'Likes'%></li>
-    <% end %>
-</ul>
-
-<button><%= link_to 'Back To Your Page', user_path(current_user.id) %></button>
+<div class="card" style="width: 18rem;">
+    <div class="card-body">
+        <h5 class="card-title"><%= link_to post.title, post %></h5>
+        <p class="card-text"><%= post.likes.count%>&nbsp<%=(post.likes.count) ==1 ? 'Like': 'Likes'%></p>
+    </div>
+</div>
+<% end %>

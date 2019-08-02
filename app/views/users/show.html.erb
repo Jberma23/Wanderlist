@@ -3,26 +3,39 @@
 <h2 class="text-center"> Upcoming Trips </h2>
 <ul>
 
-
-      <%current_user.trips.each do |trip|%>
-            <%if trip.end_date > Date.today%>
-                  <li class= "list-group-item text-center" > Trip Name: <%= link_to trip.name, trip_path(trip) %> Trip start date: <%=trip.start_date%> Trip end date: <%=trip.end_date%></li>
-            <%end%>    
-      <%end%>
-
-</ul>
-
-<br>
-<h2 class="text-center"> Past trips </h2>
-<div data-spy="scroll" data-target="#navbar-example3" data-offset="0">
-<ul>
 <%current_user.trips.each do |trip|%>
-            <%if trip.end_date < Date.today%>
-                  <li class= "list-group-item text-center" > Trip Name: <%= link_to trip.name, trip_path(trip) %> Trip start date: <%=trip.start_date%> Trip end date: <%=trip.end_date%></li>
-            <%end%> 
-      <%end%>
-</ul>
+<%if trip.end_date > Date.today%>
+<div class="row">
+<div class="card border-dark mb-3" style="max-width: 18rem;">
+      <div class="card-header"><%= link_to trip.name.titleize, trip_path(trip) %>
+      </div>
+      <div class="card-body">
+      <p class="card-text">Trip start date: <%=trip.start_date%></p>
+      <p class="card-text">Trip end date: <%=trip.end_date%>.</p>
+      </div>
 </div>
+</div>
+<% end %>
+<% end %>
+
+<h2 class="text-center"> Past trips </h2>
+
+<%current_user.trips.each do |trip|%>
+      <%if trip.end_date < Date.today%>
+      <div class="row">
+      <div class="card border-dark mb-3" style="max-width: 18rem;">
+            <div class="card-header"><%= link_to trip.name.titleize, trip_path(trip) %>
+            </div>
+            <div class="card-body">
+            <p class="card-text">Trip start date: <%=trip.start_date%></p>
+            <p class="card-text">Trip end date: <%=trip.end_date%>.</p>
+            </div>
+      </div>
+      </div>
+      <% end %>
+      <% end %>
+
+      
 <br>
   <h2 class="text-center">Countries Visited</h2>
   <ul>
@@ -32,17 +45,3 @@
 
             <%end%>
       <%end%>
-
-
-
-<br>
-<br>
-<br>
-
-  </ul>
-      <button><%= link_to "Create A New Trip", new_trip_path%></button>&nbsp&nbsp
-      <button><%=link_to "Edit User", edit_user_path%></button>&nbsp&nbsp
-      <button><%= link_to "Delete User", "/#{@user.id}", method: :delete, data: {confirm: "Are you sure?"} %></button>&nbsp&nbsp
-      <button><%= link_to "Create New Post", new_post_path%></button>&nbsp&nbsp
-      <button><%= link_to "#{@user.name}'s Posts" , posts_path%></button>
-      <button><%= link_to "Logout", logout_path  %></button>

@@ -1,37 +1,26 @@
+<div class="card">
+  <div class="card-body">
+    <h1><%= @trip.name.titleize%></h1>
+  </div>
+</div>
 
-<h1><%= @trip.name.titleize%></h1>
- <%@trip.flights.find do |flight|%>
-<p> Departure Date: <%= @trip.start_date %></p>
-<p> Departure Flight Number: <%=flight.flight_number%> </p>
-<p> Departing From: <%=flight.origin_airport%></p>
-<p> Return Date: <%= @trip.end_date %></p>
-<p> Arriving At: <%=flight.destination_airport%></p>
-<p>Countries being visited: 
-<%end%>
-<ul>
-<%@trip.countries.each do |country|%>
-<li> <%=country[:name]%></li>
-<%end%>
-</ul>
-<p> Activities: </p>
-
-
-
-<button><%=link_to "Edit Trip", "trips/#{@trip.id}", method: :edit%></button>
-<br>
-<button><%=link_to "Delete Trip", "trips/#{@trip.id}", method: :delete, data: {confirm: "Are you sure?"} %></button>
-  <br>
-<button><%=link_to "Return to all Trips", trips_path %></button>
-  
-<br>
-
-  <ul>
-  <h3>County details</h3>
+<div class="card" style="width: 80rem;">
+  <div class="card-body">
+    <%@trip.flights.find do |flight|%>
+      <h4 class="card-text">Departure Date:</h4><p><%= @trip.start_date %></p>
+      <h4 class="card-text">Return Date:</h4><p><%= @trip.end_date %></p>
+      <h4 class="card-text">Departing From:</h4><p><%=flight.origin_airport%></p>
+      <h4 class="card-text">Arriving At:</h4><p><%=flight.destination_airport%></p>
+      <h4 class="card-text">Countries being visited:</h4><p>
+    <%end%>
+    <ul>
     <%@trip.countries.each do |country|%>
-        <li class="list-group-item text-center">Country:
-        <%=country.name%><br>
-        Currency: <%=country.currency %></li>
-      <%end%>
-        </ul>
- 
-
+      <li><%=country[:name]%> => Currency: <%=country.currency %></li>
+    <%end%>
+    </ul><p/>
+    <h4 class="card-text">Activities: </h4><p>     </p><br>
+    <button><%=link_to "Edit Trip", "trips/#{@trip.id}", method: :edit%></button>
+    <button><%=link_to "Delete Trip", "trips/#{@trip.id}", method: :delete, data: {confirm: "Are you sure?"} %></button>
+    <button><%=link_to "Return to all Trips", trips_path %></button>
+  </div>
+</div>
