@@ -1,3 +1,4 @@
+
 class UsersController < ApplicationController
   helper_method :current_username
   helper_method :current_user

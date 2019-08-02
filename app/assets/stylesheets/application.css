@@ -54,3 +54,12 @@ stub custom
     border: outset;
     border-color: rgb(186, 186, 186);
 }
+
+
+
+.card-body{
+  font-family: 'Permanent Marker', cursive;
+}
+.link_color{
+  color: darkblue;
+}

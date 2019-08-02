@@ -29,7 +29,6 @@ class PostsController < ApplicationController
     def update
         @post = Post.find(params[:id])
         @post.update(post_params)
-        byebug
         if @post.valid?
             @post.save
             

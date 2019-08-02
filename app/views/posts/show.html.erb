@@ -1,12 +1,40 @@
-<h1><%= @post.title %></h1>
-<h3>By: <%= link_to @post.user.name, user_path(@post.user.id) %></h3>
-<% pre_like = @post.likes.find { |like| like.user_id == current_user.id} %>
-<% if pre_like %>
-  <button><%= link_to ' ', post_like_path(@post, pre_like), method: :delete, class: "fas fa-heart" %></button>
-<% else %>
-   <button><%= link_to ' ', post_likes_path(@post), method: :post, class: "far fa-heart"%></button>
-<% end %>
-<h3><%= @post.content %></h3>
 
-<button><%= link_to 'Back to All Posts', posts_path %></button>
-<button><%= link_to "Edit Post", edit_post_path  %></button>
+<div class="card" style="width: 80rem;">
+<div class="card-body">
+<h1><%= @post.title.titleize %></h1>
+<h3> By: <%= link_to @post.user.name.titleize, user_path(@post.user.id) %></h3>
+        <p class="card-text"><%= @post.content %></p>
+        <% pre_like = @post.likes.find { |like| like.user_id == current_user.id} %>
+        <% if pre_like %>
+        <button><%= link_to ' ', post_like_path(@post, pre_like), method: :delete, class: "fas fa-heart" %></button>
+        <% else %>
+        <button><%= link_to ' ', post_likes_path(@post), method: :post, class: "far fa-heart"%></button>
+        <button><%= link_to "Edit Post", edit_post_path  %></button>
+        <% end %>
+    </div>
+</div>
+
+
+
+
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+
+
+<div class="card border-dark mb-3" style="max-width: 18rem;">
+  <div class="card-header bg-transparent border-dark">By: <%= link_to @post.user.name.titleize, user_path(@post.user.id) %></div>
+  <div class="card-body text-dark">
+    <h5 class="card-title"><%= @post.title.titleize %></h5>
+    <p class="card-text"><%= @post.content %></p>
+  </div>
+  <div class="card-footer bg-transparent border-dark"><% pre_like = @post.likes.find { |like| like.user_id == current_user.id} %>
+  <% if pre_like %>
+    <button><%= link_to ' ', post_like_path(@post, pre_like), method: :delete, class: "fas fa-heart" %></button>
+  <% else %>
+     <button><%= link_to ' ', post_likes_path(@post), method: :post, class: "far fa-heart"%></button>&nbsp&nbsp&nbsp&nbsp<button><%= link_to "Edit Post", edit_post_path  %></button>
+  <% end %></div>
+</div>
