@@ -1,14 +1,11 @@
 <br>
-<h1 class="text-center"><u><%=current_user.name.titleize%>'s Trips</u></h1>
+<h1 class="text-center"><u><%=current_user.name.titleize%>'s Travel Page</u></h1>
 
 <br>
 <br>
 
 <h2 class="text-center"> Upcoming Trips </h2>
-
-
-
-
+&nbsp&nbsp
 <div class="card-deck justify-content-md-center">
 <%current_user.trips.each do |trip|%>
 <%if trip.end_date > Date.today%>
@@ -31,7 +28,7 @@
 <br>
 
 <h2 class="text-center"> Past trips </h2>
-
+&nbsp&nbsp
 <div class="card-deck justify-content-md-center">
 <%current_user.trips.each do |trip|%>
       <%if trip.end_date < Date.today%>
@@ -53,15 +50,16 @@
 <br>
       
   <h2 class="text-center">Countries Visited</h2>
-  
+  &nbsp&nbsp
   <div class="card-deck justify-content-md-center">
   <%if current_user.user_trip_countries != [] %>
   <%current_user.countries.uniq.each do |country|%>
   <div class="row">
   <div class="card bg-light mb-3" style="max-width: 18rem;">
-  <h4 class="card-header"><%=country.name%></h4>
+  <h4 class="card-header"><%=link_to country.name, country%></h4>
   <div class="card-body">
-    <h5 class="card-title">Currency: <%=country.currency %></h5>
+    <h5 class="card-title">Currency: </h5>
+    <p class="card-text"><%=country.currency %><p>
     </div>
     </div>
     &nbsp&nbsp&nbsp&nbsp&nbsp
@@ -70,4 +68,22 @@
     <%end%>
 </div>
 
-  
+<br>
+<br>
+
+<h2 class="text-center"> Posts </h2>
+&nbsp&nbsp
+<div class="card-deck justify-content-md-center">
+<%current_user.posts.each do |post|%>
+      <div class="row">
+      <div class="card bg-light mb-3" style="max-width: 18rem;">
+            <h4 class="card-header"><%= link_to post.title.titleize, post_path(post) %></h4>
+            <div class="card-body">
+            <p class="card-text"><%=post.title%></p>
+            <p class="card-text"><%=post.content%></p>
+            </div>
+      </div>
+      &nbsp&nbsp&nbsp&nbsp&nbsp
+      </div>
+<% end %>
+</div>
