@@ -1,10 +1,26 @@
-<h1> All Posts </h1>
+<h1 style="text-align: center;"> All Posts </h1>
 
-<% @posts.each do |post| %>
-<div class="card" style="width: 18rem;">
-    <div class="card-body">
-        <h5 class="card-title"><%= link_to post.title, post %></h5>
-        <p class="card-text"><%= post.likes.count%>&nbsp<%=(post.likes.count) ==1 ? 'Like': 'Likes'%></p>
-    </div>
+<div class="card-deck">
+<div class="card-columns">
+
+          <% @posts.each do |post| %>
+        <div class="card ml-5" style="width: 18rem;">
+            <div class="card border-dark mr-3 mb-0 mt-0 ml-0 " style="max-width: 18rem;">
+                <div class="card-header text-dark bg-transparent border-dark" style="font-family: 'Permanent Marker', cursive;"><%=link_to "#{post.title.titleize}", post_path(post)%> </div>
+                <div class="card-subheader text-dark bg-transparent border-dark ml-2" style="font-family: 'Permanent Marker', cursive;" >By: <%= link_to post.user.name.titleize, user_path(post.user.id) %></div>       <div class="card-body text-dark">
+                <p class="card-text"><%= post.content %></p>
+                </div>
+                    <div class="card-footer bg-transparent border-dark"><% pre_like = post.likes.find { |like| like.user_id == current_user.id} %>
+                        <% if pre_like %>
+                        <button><%= link_to ' ', post_like_path(post, pre_like), method: :delete, class: "fas fa-heart" %></button>
+                        <% else %>
+                        <button><%= link_to ' ', post_likes_path(post.id), method: :post, class: "far fa-heart"%></button>&nbsp&nbsp&nbsp&nbsp<button><%= link_to "Edit Post", edit_post_path(post)  %></button>
+                        <% end %>
+                        &nbsp&nbsp&nbsp&nbsp   Likes: <%=post.likes.count%>
+                    </div>
+            </div>
+        </div>
+       
+         <% end %>
 </div>
-<% end %>
+</div>
