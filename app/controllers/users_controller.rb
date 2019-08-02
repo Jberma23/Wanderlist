@@ -4,6 +4,7 @@ class UsersController < ApplicationController
   helper_method :current_user
   before_action :find_user, only: [:show, :edit, :update]
   before_action :authorized, except: [:new, :create, :index]
+  
 
 
 
