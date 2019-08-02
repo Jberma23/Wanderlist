@@ -31,8 +31,16 @@
   <div class="collapse navbar-collapse" id="navbarSupportedContent">
     <ul class="navbar-nav mr-auto">
       <li class="nav-item active">
-       
-        <a class="nav-link" href="">My Profile <span class="sr-only">(current)</span></a>
+       <%if current_user.id != nil%>
+       <%=my_profile_link = "users/#{current_user.id}/show"%>
+       <%edit_account = "users/#{current_user.id}/edit"%>
+       <%delete_account = "users/#{current_user.id}/delete"%>
+       <%logout = "/logout"%>
+       <%else%>
+       <%my_profile_link = ""%>
+       <%edit_account = ""%>
+       <%delete_account = ""%>
+        <a class="nav-link" href="<%=my_profile_link%>">My Profile <span class="sr-only">(current)</span></a>
       </li>
       <li class="nav-item">
         <a class="nav-link" href="#"></a>
@@ -42,10 +50,11 @@
           Account Settings
         </a>
         <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-          <a class="dropdown-item" href="#">Logout</a>
-          <a class="dropdown-item" href="users//edit">Edit My Account</a>
+          <a class="dropdown-item" href="<%=logout%>">Logout</a>
+          <a class="dropdown-item" href="<%=edit_account%>">Edit My Account</a>
           <div class="dropdown-divider"></div>
-          <a class="dropdown-item" href="user//delete">Delete My Account</a>
+          <a class="dropdown-item" href="<%=delete_account%>">Delete My Account</a>
+          <%end%>
         </div>
       </li>
       <li class="nav-item">
