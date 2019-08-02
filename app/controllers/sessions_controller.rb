@@ -14,7 +14,7 @@ class SessionsController < ApplicationController
     end
   
     def logout
-      cookies.delete(:user_id)
+      session.delete(:user_id)
       redirect_to login_path
     end
   

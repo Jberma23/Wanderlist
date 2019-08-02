@@ -6,10 +6,10 @@
         <p class="card-text"><%= @post.content %></p>
         <% pre_like = @post.likes.find { |like| like.user_id == current_user.id} %>
         <% if pre_like %>
-        <button><%= link_to ' ', post_like_path(@post, pre_like), method: :delete, class: "fas fa-heart" %></button>
+        <%= link_to ' ', post_like_path(@post, pre_like), method: :delete, class: "fas fa-heart" %> 
         <% else %>
-        <button><%= link_to ' ', post_likes_path(@post), method: :post, class: "far fa-heart"%></button>
-        <button><%= link_to "Edit Post", edit_post_path  %></button>
+         <%= link_to ' ', post_likes_path(@post), method: :post, class: "far fa-heart"%> 
+          <button class="text-dark"><%= link_to "Edit Post", edit_post_path, class: "text-dark"%></button>
         <% end %>
     </div>
 </div>
@@ -24,19 +24,5 @@
 <br>
 <br>
 
-
-<div class="card border-dark mb-3" style="max-width: 18rem;">
-  <div class="card-header bg-transparent border-dark">By: <%= link_to @post.user.name.titleize, user_path(@post.user.id) %></div>
-  <div class="card-body text-dark">
-    <h5 class="card-title"><%= @post.title.titleize %></h5>
-    <p class="card-text"><%= @post.content %></p>
-  </div>
-  <div class="card-footer bg-transparent border-dark"><% pre_like = @post.likes.find { |like| like.user_id == current_user.id} %>
-  <% if pre_like %>
-    <button><%= link_to ' ', post_like_path(@post, pre_like), method: :delete, class: "fas fa-heart" %></button>
-  <% else %>
-     <button><%= link_to ' ', post_likes_path(@post), method: :post, class: "far fa-heart"%></button>&nbsp&nbsp&nbsp&nbsp<button><%= link_to "Edit Post", edit_post_path  %></button>
-  <% end %></div>
-</div>
 <button><%=link_to 'Back to all posts', posts_path %></button>
 

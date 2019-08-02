@@ -4,8 +4,6 @@ class ApplicationController < ActionController::Base
     helper_method :logged_in?
 
     def current_user
-        # memoization
-        # byebug
         if @current_user
             @current_user
         else
