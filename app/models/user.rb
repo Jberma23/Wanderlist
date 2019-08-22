@@ -30,6 +30,7 @@ class User < ApplicationRecord
             end
         end
     end
+
     def user_future_trips
         self.trips.uniq.sort_by{|trip| trip.start_date}.each do |trip|
             if trip.end_date < Date.today 
@@ -37,7 +38,6 @@ class User < ApplicationRecord
             end
         end
     end
-
 
     def user_trip_countries
         self.trips.each do |trip|
